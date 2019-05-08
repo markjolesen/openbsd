@@ -52,7 +52,7 @@
 #include <openssl/opensslv.h>
 #include <openssl/crypto.h>
 #include <openssl/camellia.h>
-#include "cmll_locl.h"
+#include "cmlllocl.h"
 
 int
 Camellia_set_key(const unsigned char *userKey, const int bits,

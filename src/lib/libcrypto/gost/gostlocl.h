@@ -1,4 +1,4 @@
-/* $OpenBSD: gost_locl.h,v 1.4 2016/12/21 15:49:29 jsing Exp $ */
+/* $OpenBSD: gostlocl.h,v 1.4 2016/12/21 15:49:29 jsing Exp $ */
 /*
  * Copyright (c) 2014 Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
  * Copyright (c) 2005-2006 Cryptocom LTD

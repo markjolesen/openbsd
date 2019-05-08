@@ -65,7 +65,7 @@
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 static int X509_REVOKED_cmp(const X509_REVOKED * const *a,
     const X509_REVOKED * const *b);

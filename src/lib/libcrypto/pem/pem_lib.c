@@ -78,7 +78,7 @@
 #include <openssl/engine.h>
 #endif
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 #define MIN_LENGTH	4
 

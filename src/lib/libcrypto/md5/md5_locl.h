@@ -95,7 +95,7 @@ __END_HIDDEN_DECLS
 	} while (0)
 #define	HASH_BLOCK_DATA_ORDER	md5_block_data_order
 
-#include "md32_common.h"
+#include "md32comm.h"
 
 /*
 #define	F(x,y,z)	(((x) & (y))  |  ((~(x)) & (z)))

@@ -65,7 +65,7 @@
 #include <openssl/objects.h>
 #include <openssl/x509v3.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 /* Print routines.
  */

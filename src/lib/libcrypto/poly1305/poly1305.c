@@ -16,7 +16,7 @@
  */
 
 #include <openssl/poly1305.h>
-#include "poly1305-donna.c"
+#include "p_donna.c"
 
 void
 CRYPTO_poly1305_init(poly1305_context *ctx, const unsigned char key[32])

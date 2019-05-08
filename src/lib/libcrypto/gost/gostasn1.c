@@ -14,8 +14,8 @@
 #include <openssl/x509.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
-#include "gost_asn1.h"
+#include "gostlocl.h"
+#include "gostasn1.h"
 
 static const ASN1_TEMPLATE GOST_KEY_TRANSPORT_seq_tt[] = {
 	{

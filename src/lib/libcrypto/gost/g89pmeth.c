@@ -60,7 +60,7 @@
 #include <openssl/x509v3.h> /* For string_to_hex */
 
 #include "evp_locl.h"
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 struct gost_mac_pmeth_data {
 	EVP_MD *md;

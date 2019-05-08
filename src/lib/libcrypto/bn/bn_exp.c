@@ -115,7 +115,7 @@
 #include <openssl/err.h>
 
 #include "bn_lcl.h"
-#include "constant_time_locl.h"
+#include "ctm_locl.h"
 
 /* maximum precomputation table size for *variable* sliding windows */
 #define TABLE_SIZE	32

@@ -63,7 +63,7 @@
 #include <openssl/asn1.h>
 #include <openssl/err.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 static int traverse_string(const unsigned char *p, int len, int inform,
     int (*rfunc)(unsigned long value, void *in), void *arg);

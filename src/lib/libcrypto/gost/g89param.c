@@ -57,7 +57,7 @@
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 /* Substitution blocks from test examples for GOST R 34.11-94*/
 static const gost_subst_block GostR3411_94_TestParamSet = {

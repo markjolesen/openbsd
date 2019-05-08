@@ -131,7 +131,7 @@ static void ecp_nistz256_pre_comp_clear_free(void *);
 static EC_PRE_COMP *ecp_nistz256_pre_comp_new(const EC_GROUP *group);
 
 /* Precomputed tables for the default generator */
-#include "ecp_nistz256_table.h"
+#include "nistztab.h"
 
 /* This function looks at 5+1 scalar bits (5 current, 1 adjacent less
  * significant bit), and recodes them into a signed digit for use in fast point

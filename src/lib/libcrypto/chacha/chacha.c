@@ -19,7 +19,7 @@
 
 #include <openssl/chacha.h>
 
-#include "chacha-merged.c"
+#include "merged.c"
 
 void
 ChaCha_set_key(ChaCha_ctx *ctx, const unsigned char *key, uint32_t keybits)

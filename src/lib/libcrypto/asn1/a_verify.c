@@ -69,7 +69,7 @@
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 int
 ASN1_item_verify(const ASN1_ITEM *it, X509_ALGOR *a,

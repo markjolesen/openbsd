@@ -57,7 +57,7 @@
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 int
 GostR3410_get_md_digest(int nid)

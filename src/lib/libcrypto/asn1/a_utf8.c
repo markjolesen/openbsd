@@ -60,7 +60,7 @@
 
 #include <openssl/asn1.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 /* UTF8 utilities */
 

@@ -61,7 +61,7 @@
 #include <openssl/evp.h>
 
 #include "evp_locl.h"
-#include "modes_lcl.h"
+#include "modeslcl.h"
 
 typedef struct {
 	AES_KEY ks;

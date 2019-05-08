@@ -1,4 +1,4 @@
-/* $OpenBSD: gost_asn1.h,v 1.3 2016/12/21 15:49:29 jsing Exp $ */
+/* $OpenBSD: gostasn1.h,v 1.3 2016/12/21 15:49:29 jsing Exp $ */
 /*
  * Copyright (c) 2014 Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
  * Copyright (c) 2005-2006 Cryptocom LTD

@@ -51,7 +51,7 @@
 #define OPENSSL_FIPSAPI
 
 #include <openssl/crypto.h>
-#include "modes_lcl.h"
+#include "modeslcl.h"
 #include <string.h>
 
 #ifndef MODES_DEBUG

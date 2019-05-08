@@ -71,7 +71,7 @@
 #include <openssl/engine.h>
 #endif
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 EVP_PKEY *
 d2i_PrivateKey(int type, EVP_PKEY **a, const unsigned char **pp, long length)

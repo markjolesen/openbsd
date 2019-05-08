@@ -58,7 +58,7 @@
 #include <openssl/err.h>
 #include <openssl/gost.h>
 #include <openssl/objects.h>
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 struct gost_key_st {
 	EC_GROUP *group;

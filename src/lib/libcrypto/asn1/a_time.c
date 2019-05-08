@@ -68,7 +68,7 @@
 #include <openssl/err.h>
 
 #include "o_time.h"
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 const ASN1_ITEM ASN1_TIME_it = {
 	.itype = ASN1_ITYPE_MSTRING,

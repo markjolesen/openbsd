@@ -1,4 +1,4 @@
-/*	$OpenBSD: ecp_nistz256_table.h,v 1.2 2016/12/21 15:49:29 jsing Exp $	*/
+/*	$OpenBSD: nistztab.h,v 1.2 2016/12/21 15:49:29 jsing Exp $	*/
 /* Copyright (c) 2015, Intel Inc.
  *
  * Permission to use, copy, modify, and/or distribute this software for any

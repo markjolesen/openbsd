@@ -77,7 +77,7 @@
 #include <openssl/rsa.h>
 #endif
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 int
 X509_print_fp(FILE *fp, X509 *x)

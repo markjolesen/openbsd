@@ -57,7 +57,7 @@
 
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 static void
 key_diversify_crypto_pro(GOST2814789_KEY *ctx, const unsigned char *inputKey,

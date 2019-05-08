@@ -32,7 +32,7 @@
 #include <openssl/sha.h>
 #endif
 
-#include "curve25519_internal.h"
+#include "25519int.h"
 
 static const int64_t kBottom25Bits = 0x1ffffffLL;
 static const int64_t kBottom26Bits = 0x3ffffffLL;

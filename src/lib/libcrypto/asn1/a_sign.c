@@ -122,7 +122,7 @@
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 int
 ASN1_item_sign(const ASN1_ITEM *it, X509_ALGOR *algor1, X509_ALGOR *algor2,

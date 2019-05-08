@@ -87,7 +87,7 @@
 #include <openssl/camellia.h>
 #include <openssl/opensslconf.h>
 
-#include "cmll_locl.h"
+#include "cmlllocl.h"
 
 /* 32-bit rotations */
 #if !defined(OPENSSL_NO_ASM) && !defined(OPENSSL_NO_INLINE_ASM)

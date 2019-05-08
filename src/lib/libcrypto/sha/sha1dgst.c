@@ -64,7 +64,7 @@
 
 #include <openssl/opensslv.h>
 
-/* The implementation is in ../md32_common.h */
+/* The implementation is in ../md32comm.h */
 
 #include "sha_locl.h"
 

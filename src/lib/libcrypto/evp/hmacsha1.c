@@ -60,7 +60,7 @@
 #include <openssl/aes.h>
 #include <openssl/sha.h>
 #include "evp_locl.h"
-#include "constant_time_locl.h"
+#include "ctm_locl.h"
 
 #define TLS1_1_VERSION 0x0302
 

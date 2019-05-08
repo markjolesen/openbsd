@@ -63,8 +63,8 @@
 #include <openssl/x509.h>
 
 #include "evp_locl.h"
-#include "gost_locl.h"
-#include "gost_asn1.h"
+#include "gostlocl.h"
+#include "gostasn1.h"
 
 static ECDSA_SIG *
 unpack_signature_cp(const unsigned char *sig, size_t siglen)

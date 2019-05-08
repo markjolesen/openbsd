@@ -61,7 +61,7 @@
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 static const STREEBOG_LONG64 A_PI_table[8][256] = {
 	{ /* 0 */

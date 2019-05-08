@@ -61,7 +61,7 @@
 
 #include <openssl/evp.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 #define HMAC_TEST_PRIVATE_KEY_FORMAT
 

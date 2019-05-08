@@ -57,7 +57,7 @@
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 static inline unsigned int
 f(const GOST2814789_KEY *c, unsigned int x)
@@ -433,7 +433,7 @@ GOST2814789IMIT_block_data_order(GOST2814789IMIT_CTX *ctx,
 #define HASH_NO_FINAL	1
 #define HASH_BLOCK_DATA_ORDER	GOST2814789IMIT_block_data_order
 
-#include "md32_common.h"
+#include "md32comm.h"
 
 int
 GOST2814789IMIT_Final(unsigned char *md, GOST2814789IMIT_CTX *c)

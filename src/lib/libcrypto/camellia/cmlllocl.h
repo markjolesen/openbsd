@@ -1,4 +1,4 @@
-/* $OpenBSD: cmll_locl.h,v 1.6 2016/12/21 15:49:29 jsing Exp $ */
+/* $OpenBSD: cmlllocl.h,v 1.6 2016/12/21 15:49:29 jsing Exp $ */
 /* ====================================================================
  * Copyright 2006 NTT (Nippon Telegraph and Telephone Corporation) . 
  * ALL RIGHTS RESERVED.

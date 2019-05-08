@@ -66,7 +66,7 @@
 #include <openssl/err.h>
 #include <openssl/x509.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 #include "bn_lcl.h"
 
 static int

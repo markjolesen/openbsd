@@ -23,7 +23,7 @@
  * The field functions are shared by Ed25519 and X25519 where possible.
  */
 
-#include "curve25519_internal.h"
+#include "25519int.h"
 
 void
 x25519_scalar_mult(uint8_t out[32], const uint8_t scalar[32],

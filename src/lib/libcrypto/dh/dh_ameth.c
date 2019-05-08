@@ -64,7 +64,7 @@
 #include <openssl/err.h>
 #include <openssl/x509.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 static void
 int_dh_free(EVP_PKEY *pkey)

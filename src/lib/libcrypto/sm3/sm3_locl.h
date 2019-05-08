@@ -43,7 +43,7 @@
 void SM3_block_data_order(SM3_CTX *c, const void *p, size_t num);
 void SM3_transform(SM3_CTX *c, const unsigned char *data);
 
-#include "md32_common.h"
+#include "md32comm.h"
 
 #define P0(X) (X ^ ROTATE(X, 9) ^ ROTATE(X, 17))
 #define P1(X) (X ^ ROTATE(X, 15) ^ ROTATE(X, 23))

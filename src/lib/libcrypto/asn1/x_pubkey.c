@@ -71,7 +71,7 @@
 #include <openssl/rsa.h>
 #endif
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 /* Minor tweak to operation: free up EVP_PKEY */
 static int

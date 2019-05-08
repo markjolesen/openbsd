@@ -62,9 +62,9 @@
 #include <openssl/gost.h>
 
 
-#include "asn1_locl.h"
-#include "gost_locl.h"
-#include "gost_asn1.h"
+#include "asn1locl.h"
+#include "gostlocl.h"
+#include "gostasn1.h"
 
 static void
 pkey_free_gost01(EVP_PKEY *key)

@@ -73,7 +73,7 @@
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
-#include "asn1_locl.h"
+#include "asn1locl.h"
 #include "vpm_int.h"
 #include "x509_lcl.h"
 

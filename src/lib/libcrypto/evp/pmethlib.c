@@ -70,7 +70,7 @@
 #include <openssl/engine.h>
 #endif
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 #include "evp_locl.h"
 
 typedef int sk_cmp_fn_type(const char * const *a, const char * const *b);

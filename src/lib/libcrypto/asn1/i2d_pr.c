@@ -62,7 +62,7 @@
 #include <openssl/evp.h>
 #include <openssl/x509.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 int
 i2d_PrivateKey(EVP_PKEY *a, unsigned char **pp)

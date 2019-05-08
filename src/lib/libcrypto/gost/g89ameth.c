@@ -54,7 +54,7 @@
 #ifndef OPENSSL_NO_GOST
 #include <openssl/evp.h>
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 static void
 mackey_free_gost(EVP_PKEY *pk)

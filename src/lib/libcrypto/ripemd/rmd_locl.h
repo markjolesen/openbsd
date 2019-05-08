@@ -96,7 +96,7 @@ __END_HIDDEN_DECLS
 	} while (0)
 #define HASH_BLOCK_DATA_ORDER   ripemd160_block_data_order
 
-#include "md32_common.h"
+#include "md32comm.h"
 
 #if 0
 #define F1(x,y,z)	 ((x)^(y)^(z))

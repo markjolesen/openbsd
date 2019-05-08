@@ -59,7 +59,7 @@
 #include <openssl/gost.h>
 
 #include "bn_lcl.h"
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 /* Convert little-endian byte array into bignum */
 BIGNUM *

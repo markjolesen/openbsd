@@ -67,7 +67,7 @@
 #include <openssl/x509.h>
 
 
-#include "asn1_locl.h"
+#include "asn1locl.h"
 
 static int
 rsa_pub_encode(X509_PUBKEY *pk, const EVP_PKEY *pkey)

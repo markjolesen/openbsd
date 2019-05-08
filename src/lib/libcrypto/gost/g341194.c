@@ -58,7 +58,7 @@
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
-#include "gost_locl.h"
+#include "gostlocl.h"
 
 /* Following functions are various bit meshing routines used in
  * GOST R 34.11-94 algorithms */
@@ -229,7 +229,7 @@ GOSTR341194_block_data_order(GOSTR341194_CTX *ctx, const unsigned char *p,
 #define HASH_NO_FINAL	1
 #define HASH_BLOCK_DATA_ORDER	GOSTR341194_block_data_order
 
-#include "md32_common.h"
+#include "md32comm.h"
 
 int
 GOSTR341194_Final(unsigned char *md, GOSTR341194_CTX * c)

@@ -18,6 +18,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+// _mjo temporary
+extern void* recallocarray(void *ptr, size_t oldnmemb, size_t newnmemb, size_t size);
+
 int
 CRYPTO_set_mem_functions(void *(*m)(size_t), void *(*r)(void *, size_t),
     void (*f)(void *))

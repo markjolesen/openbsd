@@ -118,6 +118,10 @@
 
 #include "bn_lcl.h"
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+void arc4random_buf(void *b, size_t nbytes);
+
 static int
 bnrand(int pseudorand, BIGNUM *rnd, int bits, int top, int bottom)
 {

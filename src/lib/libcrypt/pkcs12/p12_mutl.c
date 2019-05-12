@@ -60,13 +60,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_HMAC
 
 #include <openssl/err.h>
 #include <openssl/hmac.h>
 #include <openssl/pkcs12.h>
+
+/* TEMP: _mjo */
+void arc4random_buf(void *buf, size_t nbytes);
 
 /* Generate a MAC */
 int

@@ -1,5 +1,5 @@
 #include <openssl/opensslfeatures.h>
-/* crypto/opensslconf.h.in */
+/* crypto/sslcfg.h.in */
 
 #if defined(HEADER_CRYPTLIB_H) && !defined(OPENSSLDIR)
 #define OPENSSLDIR "/etc/ssl"

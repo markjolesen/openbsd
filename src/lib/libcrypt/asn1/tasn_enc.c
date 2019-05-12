@@ -63,6 +63,9 @@
 #include <openssl/asn1t.h>
 #include <openssl/objects.h>
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
 static int asn1_i2d_ex_primitive(ASN1_VALUE **pval, unsigned char **out,
     const ASN1_ITEM *it, int tag, int aclass);
 static int asn1_set_seq_out(STACK_OF(ASN1_VALUE) *sk, unsigned char **out,

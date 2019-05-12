@@ -59,6 +59,9 @@
 #include <openssl/objects.h>
 #include "obj_xref.h"
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
 DECLARE_STACK_OF(nid_triple)
 STACK_OF(nid_triple) *sig_app, *sigx_app;
 

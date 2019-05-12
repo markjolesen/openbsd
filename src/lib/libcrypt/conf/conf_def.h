@@ -59,7 +59,7 @@
 /* THIS FILE WAS AUTOMAGICALLY GENERATED!
    Please modify and use keysets.pl to regenerate it. */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define CONF_NUMBER		1
 #define CONF_UPPER		2
@@ -163,4 +163,4 @@ static unsigned short CONF_type_win32[256] = {
 	0x1000, 0x1000, 0x1000, 0x1000, 0x1000, 0x1000, 0x1000, 0x1000,
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

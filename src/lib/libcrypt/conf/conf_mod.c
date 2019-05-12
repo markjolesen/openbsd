@@ -67,6 +67,9 @@
 #include <openssl/err.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+int asprintf(char** ret, const char* format, ...);
+
 #define DSO_mod_init_name "OPENSSL_init"
 #define DSO_mod_finish_name "OPENSSL_finish"
 

@@ -55,7 +55,7 @@
 #include <openssl/ec.h>
 #include <openssl/ecdsa.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* Internal representation of GOST substitution blocks */
 typedef struct {
@@ -112,6 +112,6 @@ extern int GostR3410_get_pk_digest(int nid);
 extern int GostR3410_256_param_id(const char *value);
 extern int GostR3410_512_param_id(const char *value);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

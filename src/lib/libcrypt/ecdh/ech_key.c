@@ -70,7 +70,7 @@
 #include <limits.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bn.h>
 #include <openssl/err.h>

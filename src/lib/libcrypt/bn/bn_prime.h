@@ -57,7 +57,7 @@
  * [including the GNU Public Licence.]
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define NUMPRIMES 2048
 typedef unsigned short prime_t;
@@ -320,4 +320,4 @@ static const prime_t primes[NUMPRIMES] = {
 	17789, 17791, 17807, 17827, 17837, 17839, 17851, 17863,
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

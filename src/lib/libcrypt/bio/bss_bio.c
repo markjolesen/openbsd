@@ -84,6 +84,9 @@
 #include <openssl/err.h>
 #include <openssl/crypto.h>
 
+/* TODO: _mjo read/write max - unsure of DOS PM limits */
+#define SSIZE_MAX USHRT_MAX
+
 static int bio_new(BIO *bio);
 static int bio_free(BIO *bio);
 static int bio_read(BIO *bio, char *buf, int size);
@@ -827,7 +830,7 @@ BIO_nread0(BIO *bio, char **buf)
 	}
 
 	ret = BIO_ctrl(bio, BIO_C_NREAD0, 0, buf);
-	if (ret > INT_MAX)
+	if (ret >= INT_MAX)
 		return INT_MAX;
 	else
 		return (int) ret;
@@ -860,7 +863,7 @@ BIO_nwrite0(BIO *bio, char **buf)
 	}
 
 	ret = BIO_ctrl(bio, BIO_C_NWRITE0, 0, buf);
-	if (ret > INT_MAX)
+	if (ret >= INT_MAX)
 		return INT_MAX;
 	else
 		return (int) ret;

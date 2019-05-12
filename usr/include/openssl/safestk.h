@@ -1,4 +1,4 @@
-/* $OpenBSD: safestack.h,v 1.17 2018/10/24 17:57:22 jsing Exp $ */
+/* $OpenBSD: safestk.h,v 1.17 2018/10/24 17:57:22 jsing Exp $ */
 /* ====================================================================
  * Copyright (c) 1999 The OpenSSL Project.  All rights reserved.
  *
@@ -132,7 +132,7 @@ DECLARE_SPECIAL_STACK_OF(OPENSSL_STRING, char)
 typedef void *OPENSSL_BLOCK;
 DECLARE_SPECIAL_STACK_OF(OPENSSL_BLOCK, void)
 
-/* SKM_sk_... stack macros are internal to safestack.h:
+/* SKM_sk_... stack macros are internal to safestk.h:
  * never use them directly, use sk_<type>_... instead */
 #define SKM_sk_new(type, cmp) \
 	((STACK_OF(type) *)sk_new(CHECKED_SK_CMP_FUNC(type, cmp)))

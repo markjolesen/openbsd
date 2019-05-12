@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_WHIRLPOOL
 

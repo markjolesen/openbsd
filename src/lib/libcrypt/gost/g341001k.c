@@ -51,7 +51,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/bn.h>
@@ -59,6 +59,9 @@
 #include <openssl/gost.h>
 #include <openssl/objects.h>
 #include "gostlocl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 struct gost_key_st {
 	EC_GROUP *group;

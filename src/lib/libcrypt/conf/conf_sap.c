@@ -56,10 +56,10 @@
  *
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1.h>
 #include <openssl/conf.h>
@@ -76,7 +76,7 @@
  * unless this is overridden by calling OPENSSL_no_config()
  */
 
-static pthread_once_t openssl_configured = PTHREAD_ONCE_INIT;
+/* static pthread_once_t openssl_configured = PTHREAD_ONCE_INIT; */
 
 static const char *openssl_config_name;
 
@@ -121,8 +121,12 @@ OpenSSL_config(const char *config_name)
 	if (OPENSSL_init_crypto(0, NULL) == 0)
 		return 0;
 
+/*
 	if (pthread_once(&openssl_configured, OPENSSL_config_internal) != 0)
 		return 0;
+*/
+
+	OPENSSL_config_internal();
 
 	return 1;
 }
@@ -141,9 +145,11 @@ OPENSSL_no_config_internal(void)
 int
 OpenSSL_no_config(void)
 {
+/*
 	if (pthread_once(&openssl_configured, OPENSSL_no_config_internal) != 0)
 		return 0;
-
+*/
+	OPENSSL_no_config_internal();
 	return 1;
 }
 

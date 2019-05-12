@@ -81,10 +81,12 @@ BIO_sock_cleanup(void)
 int
 BIO_socket_nbio(int s, int mode)
 {
+#if 0
 	int flags = fcntl(s, F_GETFD);
 	if (mode && !(flags & O_NONBLOCK))
 		return (fcntl(s, F_SETFL, flags | O_NONBLOCK) != -1);
 	else if (!mode && (flags & O_NONBLOCK))
 		return (fcntl(s, F_SETFL, flags & ~O_NONBLOCK) != -1);
+#endif
 	return (1);
 }

@@ -64,6 +64,9 @@
 
 #include "asn1locl.h"
 
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
+
 /* Generalised MIME like utilities for streaming ASN1. Although many
  * have a PKCS7/CMS like flavour others are more general purpose.
  */

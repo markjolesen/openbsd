@@ -62,6 +62,9 @@
 #include <openssl/asn1t.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 /* Minor tweak to operation: zero private key data */
 static int
 pkey_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it, void *exarg)

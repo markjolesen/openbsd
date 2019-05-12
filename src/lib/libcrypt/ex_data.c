@@ -141,6 +141,11 @@
 #include <openssl/err.h>
 #include <openssl/lhash.h>
 
+/* TEMP: _mjo */
+extern void* recallocarray(void *ptr, size_t oldnmemb, size_t newnmemb, size_t size);
+extern void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
+
 /* What an "implementation of ex_data functionality" looks like */
 struct st_CRYPTO_EX_DATA_IMPL {
 	/*********************/

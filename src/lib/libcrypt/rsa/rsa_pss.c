@@ -66,6 +66,10 @@
 #include <openssl/rsa.h>
 #include <openssl/sha.h>
 
+/* TEMP: _mjo */
+int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
+void arc4random_buf(void *b, size_t nbytes);
+
 static const unsigned char zeroes[] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 int

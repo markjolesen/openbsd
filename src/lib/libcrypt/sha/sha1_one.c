@@ -59,10 +59,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/crypto.h>
 #include <openssl/sha.h>
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 #ifndef OPENSSL_NO_SHA1
 unsigned char *SHA1(const unsigned char *d, size_t n, unsigned char *md)

@@ -26,13 +26,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/curve25519.h>
+#include <openssl/crv25519.h>
 
 #ifdef ED25519
 #include <openssl/sha.h>
 #endif
 
 #include "25519int.h"
+
+/* TEMP: _mjo */
+#define timingsafe_memcmp memcmp
+void arc4random_buf(void *buf, size_t nbytes);
 
 static const int64_t kBottom25Bits = 0x1ffffffLL;
 static const int64_t kBottom26Bits = 0x3ffffffLL;
@@ -718,8 +722,8 @@ static void fe_neg(fe h, const fe f) {
  *
  * Preconditions: b in {0,1}. */
 static void fe_cmov(fe f, const fe g, unsigned b) {
-  b = 0-b;
   unsigned i;
+  b = 0-b;
   for (i = 0; i < 10; i++) {
     int32_t x = f[i] ^ g[i];
     x &= b;
@@ -733,10 +737,10 @@ static void fe_cmov(fe f, const fe g, unsigned b) {
  * Preconditions:
  *    |f| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc. */
 static int fe_isnonzero(const fe f) {
+  static const uint8_t zero[32] = {0};
   uint8_t s[32];
   fe_tobytes(s, f);
 
-  static const uint8_t zero[32] = {0};
   return timingsafe_memcmp(s, zero, sizeof(zero)) != 0;
 }
 
@@ -1218,15 +1222,23 @@ void x25519_ge_scalarmult_small_precomp(
   /* precomp_table is first expanded into matching |ge_precomp|
    * elements. */
   ge_precomp multiples[15];
+  const uint8_t *bytes;
+  fe x, y;
+  ge_precomp *out;
+  unsigned j;
+  signed char index = 0;
+  ge_cached cached;
+  ge_p1p1 r;
+  uint8_t bit;
+  ge_precomp e;
 
   unsigned i;
   for (i = 0; i < 15; i++) {
-    const uint8_t *bytes = &precomp_table[i*(2 * 32)];
-    fe x, y;
+    bytes = &precomp_table[i*(2 * 32)];
     fe_frombytes(x, bytes);
     fe_frombytes(y, bytes + 32);
 
-    ge_precomp *out = &multiples[i];
+    out = &multiples[i];
     fe_add(out->yplusx, y, x);
     fe_sub(out->yminusx, y, x);
     fe_mul(out->xy2d, x, y);
@@ -1239,23 +1251,18 @@ void x25519_ge_scalarmult_small_precomp(
   ge_p3_0(h);
 
   for (i = 63; i < 64; i--) {
-    unsigned j;
-    signed char index = 0;
 
     for (j = 0; j < 4; j++) {
-      const uint8_t bit = 1 & (a[(8 * j) + (i / 8)] >> (i & 7));
+      bit = 1 & (a[(8 * j) + (i / 8)] >> (i & 7));
       index |= (bit << j);
     }
 
-    ge_precomp e;
     ge_precomp_0(&e);
 
     for (j = 1; j < 16; j++) {
       cmov(&e, &multiples[j-1], equal(index, j));
     }
 
-    ge_cached cached;
-    ge_p1p1 r;
     x25519_ge_p3_to_cached(&cached, h);
     x25519_ge_add(&r, h, &cached);
     x25519_ge_p1p1_to_p3(h, &r);
@@ -3575,12 +3582,16 @@ void x25519_ge_scalarmult(ge_p2 *r, const uint8_t *scalar, const ge_p3 *A) {
   ge_p2 Ai_p2[8];
   ge_cached Ai[16];
   ge_p1p1 t;
+  unsigned i;
+  ge_p3 u;
+  uint8_t index;
+  unsigned j;
+  ge_cached selected;
 
   ge_cached_0(&Ai[0]);
   x25519_ge_p3_to_cached(&Ai[1], A);
   ge_p3_to_p2(&Ai_p2[1], A);
 
-  unsigned i;
   for (i = 2; i < 16; i += 2) {
     ge_p2_dbl(&t, &Ai_p2[i / 2]);
     ge_p1p1_to_cached(&Ai[i], &t);
@@ -3595,7 +3606,6 @@ void x25519_ge_scalarmult(ge_p2 *r, const uint8_t *scalar, const ge_p3 *A) {
   }
 
   ge_p2_0(r);
-  ge_p3 u;
 
   for (i = 0; i < 256; i += 4) {
     ge_p2_dbl(&t, r);
@@ -3607,12 +3617,10 @@ void x25519_ge_scalarmult(ge_p2 *r, const uint8_t *scalar, const ge_p3 *A) {
     ge_p2_dbl(&t, r);
     x25519_ge_p1p1_to_p3(&u, &t);
 
-    uint8_t index = scalar[31 - i/8];
+    index = scalar[31 - i/8];
     index >>= 4 - (i & 4);
     index &= 0xf;
 
-    unsigned j;
-    ge_cached selected;
     ge_cached_0(&selected);
     for (j = 0; j < 16; j++) {
       cmov_cached(&selected, &Ai[j], equal(j, index));
@@ -4734,8 +4742,8 @@ int ED25519_verify(const uint8_t *message, size_t message_len,
  *
  * Preconditions: b in {0,1}. */
 static void fe_cswap(fe f, fe g, unsigned int b) {
-  b = 0-b;
   unsigned i;
+  b = 0-b;
   for (i = 0; i < 10; i++) {
     int32_t x = f[i] ^ g[i];
     x &= b;
@@ -4814,6 +4822,8 @@ x25519_scalar_mult_generic(uint8_t out[32], const uint8_t scalar[32],
   fe x1, x2, z2, x3, z3, tmp0, tmp1;
 
   uint8_t e[32];
+  unsigned swap;
+  int pos;
   memcpy(e, scalar, 32);
   e[0] &= 248;
   e[31] &= 127;
@@ -4824,8 +4834,7 @@ x25519_scalar_mult_generic(uint8_t out[32], const uint8_t scalar[32],
   fe_copy(x3, x1);
   fe_1(z3);
 
-  unsigned swap = 0;
-  int pos;
+  swap = 0;
   for (pos = 254; pos >= 0; --pos) {
     unsigned b = 1 & (e[pos / 8] >> (pos & 7));
     swap ^= b;

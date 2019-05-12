@@ -56,7 +56,7 @@
 #ifndef HEADER_OPENSSL_TYPES_H
 #define HEADER_OPENSSL_TYPES_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 typedef struct asn1_string_st ASN1_INTEGER;
 typedef struct asn1_string_st ASN1_ENUMERATED;

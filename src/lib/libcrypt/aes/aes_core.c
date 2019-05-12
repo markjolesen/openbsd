@@ -34,6 +34,7 @@
 # endif
 #endif
 
+#include <stdint.h>
 #include <stdlib.h>
 #include <openssl/aes.h>
 #include "aes_locl.h"

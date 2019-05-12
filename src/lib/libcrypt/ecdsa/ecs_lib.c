@@ -55,7 +55,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "ecs_locl.h"
 #ifndef OPENSSL_NO_ENGINE
@@ -63,6 +63,9 @@
 #endif
 #include <openssl/err.h>
 #include <openssl/bn.h>
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 static const ECDSA_METHOD *default_ECDSA_method = NULL;
 

@@ -59,7 +59,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/sha.h>
 
 #define DATA_ORDER_IS_BIG_ENDIAN
@@ -85,7 +85,7 @@
 					  ix=(a)=ROTATE((a),1)	\
 					)
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #ifndef SHA1_ASM
 static
@@ -93,7 +93,7 @@ static
 
 void sha1_block_data_order (SHA_CTX *c, const void *p,size_t num);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #include "md32comm.h"
 
@@ -186,7 +186,11 @@ int SHA1_Init(SHA_CTX *c)
 #endif
 
 #if !defined(SHA1_ASM)
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
+
 static void HASH_BLOCK_DATA_ORDER (SHA_CTX *c, const void *p, size_t num)
 	{
 	const unsigned char *data=p;

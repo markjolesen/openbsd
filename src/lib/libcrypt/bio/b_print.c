@@ -3,6 +3,10 @@
 /* Theo de Raadt places this file in the public domain. */
 
 #include <openssl/bio.h>
+#include <stdio.h>
+
+/* TEMP: _mjo */
+int vasprintf(char **ret, const char *format, va_list ap);
 
 int
 BIO_printf(BIO *bio, const char *format, ...)

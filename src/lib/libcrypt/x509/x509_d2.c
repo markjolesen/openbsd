@@ -59,6 +59,13 @@
 #include <stdio.h>
 #include <sys/uio.h>
 
+/* TEMP: _mjo */
+struct iovec
+{
+  void *iov_base;
+  size_t iov_len;
+};
+
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>

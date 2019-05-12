@@ -66,11 +66,16 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 
 #include "bn_lcl.h"
+
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+void freezero(void *ptr, size_t size);
+void explicit_bzero(void *b, size_t len);
 
 /* This stuff appears to be completely unused, so is deprecated */
 #ifndef OPENSSL_NO_DEPRECATED

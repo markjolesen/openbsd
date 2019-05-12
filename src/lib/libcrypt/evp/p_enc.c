@@ -58,7 +58,7 @@
 
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/evp.h>

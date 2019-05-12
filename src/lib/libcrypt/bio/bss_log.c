@@ -65,12 +65,12 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
-#include <syslog.h>
 
 #include <openssl/buffer.h>
 #include <openssl/err.h>
 
 #ifndef NO_SYSLOG
+#include <syslog.h>
 
 static int slg_write(BIO *h, const char *buf, int num);
 static int slg_puts(BIO *h, const char *str);

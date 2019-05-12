@@ -61,7 +61,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/buffer.h>
 #include <openssl/err.h>
@@ -79,6 +79,12 @@
 #endif
 
 #include "asn1locl.h"
+
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+void arc4random_buf(void *buf, size_t nbytes);
+void explicit_bzero(void *b, size_t len);
+void freezero(void *ptr, size_t size);
 
 #define MIN_LENGTH	4
 

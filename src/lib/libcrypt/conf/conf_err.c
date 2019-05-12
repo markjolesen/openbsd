@@ -60,7 +60,7 @@
 
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/conf.h>
 #include <openssl/err.h>

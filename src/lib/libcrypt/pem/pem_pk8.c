@@ -67,6 +67,9 @@
 #include <openssl/pkcs12.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 static int do_pk8pkey(BIO *bp, EVP_PKEY *x, int isder, int nid,
     const EVP_CIPHER *enc, char *kstr, int klen, pem_password_cb *cb, void *u);
 static int do_pk8pkey_fp(FILE *bp, EVP_PKEY *x, int isder, int nid,

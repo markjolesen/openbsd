@@ -58,7 +58,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/ripemd.h>
 
 /*
@@ -72,11 +72,11 @@
 # endif
 #endif
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 void ripemd160_block_data_order (RIPEMD160_CTX *c, const void *p,size_t num);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #define DATA_ORDER_IS_LITTLE_ENDIAN
 

@@ -63,6 +63,9 @@
 #include <openssl/buffer.h>
 #include <openssl/txt_db.h>
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
 #undef BUFSIZE
 #define BUFSIZE	512
 

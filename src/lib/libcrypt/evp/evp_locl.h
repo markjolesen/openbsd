@@ -56,7 +56,7 @@
  *
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* Macros to code block cipher wrappers */
 
@@ -367,4 +367,4 @@ struct evp_aead_st {
 	    const unsigned char *ad, size_t ad_len);
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

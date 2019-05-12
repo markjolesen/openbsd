@@ -67,6 +67,9 @@
 #include "bn_lcl.h"
 #include "ec_lcl.h"
 
+/* TEMP: _mjo */
+void* recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
+
 const EC_METHOD *
 EC_GFp_simple_method(void)
 {

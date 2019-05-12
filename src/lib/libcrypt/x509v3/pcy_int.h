@@ -56,7 +56,7 @@
  *
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 typedef struct X509_POLICY_DATA_st X509_POLICY_DATA;
 
@@ -206,4 +206,4 @@ int policy_node_match(const X509_POLICY_LEVEL *lvl,
 
 const X509_POLICY_CACHE *policy_cache_set(X509 *x);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

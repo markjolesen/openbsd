@@ -63,12 +63,15 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/opensslv.h>
 
 #include "ec_lcl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 /* functions for EC_GROUP objects */
 

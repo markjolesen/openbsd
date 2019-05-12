@@ -119,8 +119,8 @@ sock_free(BIO *a)
 		return (0);
 	if (a->shutdown) {
 		if (a->init) {
-			shutdown(a->num, SHUT_RDWR);
-			close(a->num);
+			shutdown(a->num, 2 /*SHUT_RDWR*/);
+			closesocket(a->num);
 		}
 		a->init = 0;
 		a->flags = 0;

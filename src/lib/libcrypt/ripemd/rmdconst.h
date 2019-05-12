@@ -56,7 +56,7 @@
  * [including the GNU Public Licence.]
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define KL0 0x00000000L
 #define KL1 0x5A827999L
@@ -400,4 +400,4 @@ __BEGIN_HIDDEN_DECLS
 #define WR79 11
 #define SR79 11
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

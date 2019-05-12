@@ -67,7 +67,7 @@
 #include <openssl/ossl_typ.h>
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 
 #ifdef  __cplusplus
 extern "C" {

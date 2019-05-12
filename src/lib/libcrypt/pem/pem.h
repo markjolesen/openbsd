@@ -59,7 +59,7 @@
 #ifndef HEADER_PEM_H
 #define HEADER_PEM_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_BIO
 #include <openssl/bio.h>

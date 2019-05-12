@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1t.h>
 #include <openssl/x509.h>

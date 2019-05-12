@@ -162,7 +162,7 @@ pkey_dh_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		len = lval;
 		return EVP_PKEY_CTX_set_dh_paramgen_prime_len(ctx, len);
@@ -173,7 +173,7 @@ pkey_dh_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		len = lval;
 		return EVP_PKEY_CTX_set_dh_paramgen_generator(ctx, len);

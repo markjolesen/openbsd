@@ -57,7 +57,7 @@
  *
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* internal only structure to hold additional X509_VERIFY_PARAM data */
 
@@ -72,4 +72,4 @@ struct X509_VERIFY_PARAM_ID_st {
 	int poisoned;
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

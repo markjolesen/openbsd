@@ -61,7 +61,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bio.h>
 
@@ -254,11 +254,11 @@ int
 BIO_fd_non_fatal_error(int err)
 {
 	switch (err) {
-	case ENOTCONN:
-	case EINTR:
+	/* case ENOTCONN: */
+	/* case EINTR: */
 	case EAGAIN:
-	case EINPROGRESS:
-	case EALREADY:
+	/* case EINPROGRESS: */
+	/* case EALREADY: */
 		return (1);
 	default:
 		break;

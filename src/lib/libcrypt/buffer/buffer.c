@@ -63,6 +63,10 @@
 #include <openssl/buffer.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+void* recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
+
 /*
  * LIMIT_BEFORE_EXPANSION is the maximum n such that (n + 3) / 3 * 4 < 2**31.
  * That function is applied in several functions in this file and this limit

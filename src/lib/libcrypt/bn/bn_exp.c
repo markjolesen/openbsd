@@ -117,6 +117,9 @@
 #include "bn_lcl.h"
 #include "ctm_locl.h"
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 /* maximum precomputation table size for *variable* sliding windows */
 #define TABLE_SIZE	32
 

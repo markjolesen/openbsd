@@ -66,6 +66,9 @@
 
 #include "evp_locl.h"
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 /* HMAC pkey context structure */
 
 typedef struct {

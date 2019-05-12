@@ -63,11 +63,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bn.h>
 #include <openssl/err.h>
 #include <openssl/pem.h>
+
+/* TEMP: _mjo */
+void arc4random_buf(void *buf, size_t nbytes);
+void explicit_bzero(void *b, size_t len);
+void freezero(void *ptr, size_t size);
 
 #if !defined(OPENSSL_NO_RSA) && !defined(OPENSSL_NO_DSA)
 #include <openssl/dsa.h>

@@ -61,6 +61,9 @@
 #include <openssl/md5.h>
 #include <openssl/crypto.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 unsigned char *MD5(const unsigned char *d, size_t n, unsigned char *md)
 	{
 	MD5_CTX c;

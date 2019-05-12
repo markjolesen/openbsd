@@ -67,6 +67,10 @@
 
 #include "rsa_locl.h"
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
+
 /* Size of an SSL signature: MD5+SHA1 */
 #define SSL_SIG_LENGTH	36
 

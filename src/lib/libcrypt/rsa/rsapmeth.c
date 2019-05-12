@@ -60,7 +60,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1t.h>
 #include <openssl/bn.h>
@@ -72,6 +72,9 @@
 
 #include "evp_locl.h"
 #include "rsa_locl.h"
+
+/* TEMP: _mjo */
+int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
 
 /* RSA pkey context structure */
 
@@ -492,7 +495,7 @@ pkey_rsa_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		saltlen = lval;
 		return EVP_PKEY_CTX_set_rsa_pss_saltlen(ctx, saltlen);
@@ -507,7 +510,7 @@ pkey_rsa_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		nbits = lval;
 		return EVP_PKEY_CTX_set_rsa_keygen_bits(ctx, nbits);

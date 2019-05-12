@@ -65,6 +65,9 @@
 #include <openssl/rsa.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
+
 int
 RSA_sign_ASN1_OCTET_STRING(int type, const unsigned char *m, unsigned int m_len,
     unsigned char *sigret, unsigned int *siglen, RSA *rsa)

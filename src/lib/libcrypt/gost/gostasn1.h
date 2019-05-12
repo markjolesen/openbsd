@@ -54,7 +54,7 @@
 
 #include <openssl/asn1.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 typedef struct {
 	ASN1_OCTET_STRING *encrypted_key;
@@ -102,6 +102,6 @@ GOST_KEY_PARAMS *d2i_GOST_KEY_PARAMS(GOST_KEY_PARAMS **a, const unsigned char **
 int i2d_GOST_KEY_PARAMS(GOST_KEY_PARAMS *a, unsigned char **out);
 extern const ASN1_ITEM GOST_KEY_PARAMS_it;
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

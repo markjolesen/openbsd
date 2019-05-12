@@ -57,7 +57,11 @@
  */
 
 #include "des_locl.h"
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
 /* The input and output are loaded in multiples of 8 bits.
  * What this means is that if you hame numbits=12 and length=2

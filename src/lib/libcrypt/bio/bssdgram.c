@@ -58,7 +58,8 @@
  */
 
 #include <sys/socket.h>
-#include <sys/time.h>
+/* #include <sys/time.h> */
+#include <time.h>
 
 #include <netinet/in.h>
 
@@ -68,9 +69,11 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bio.h>
+
+uint32_t htonl(uint32_t x);
 
 #ifndef OPENSSL_NO_DGRAM
 
@@ -169,8 +172,8 @@ dgram_clear(BIO *a)
 		return (0);
 	if (a->shutdown) {
 		if (a->init) {
-			shutdown(a->num, SHUT_RDWR);
-			close(a->num);
+			shutdown(a->num, 2 /*SHUT_RDWR*/);
+			closesocket(a->num);
 		}
 		a->init = 0;
 		a->flags = 0;

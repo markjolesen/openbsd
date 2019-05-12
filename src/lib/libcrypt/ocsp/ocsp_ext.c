@@ -70,6 +70,9 @@
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
+/* TEMP: _mjo4 */
+void arc4random_buf(void *buf, size_t nbytes);
+
 /* Standard wrapper functions for extensions */
 
 /* OCSP request extensions */

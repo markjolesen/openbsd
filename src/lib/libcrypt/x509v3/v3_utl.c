@@ -66,6 +66,10 @@
 #include <openssl/err.h>
 #include <openssl/x509v3.h>
 
+/* TEMP: _mjo */
+int asprintf(char** ret, const char* format, ...);
+char* strndup(const char *s, size_t size);
+
 char *bn_to_string(const BIGNUM *bn);
 static char *strip_spaces(char *name);
 static int sk_strcmp(const char * const *a, const char * const *b);

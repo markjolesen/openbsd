@@ -59,7 +59,7 @@
 #ifndef HEADER_PKCS7_H
 #define HEADER_PKCS7_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1.h>
 #include <openssl/bio.h>

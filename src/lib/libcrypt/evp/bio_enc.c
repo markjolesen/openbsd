@@ -63,6 +63,9 @@
 #include <openssl/buffer.h>
 #include <openssl/evp.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 static int enc_write(BIO *h, const char *buf, int num);
 static int enc_read(BIO *h, char *buf, int size);
 /*static int enc_puts(BIO *h, const char *str); */

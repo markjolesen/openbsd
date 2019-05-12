@@ -64,6 +64,9 @@
 #include <openssl/evp.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 /* Doesn't do anything now: Builtin PBE algorithms in static table.
  */
 

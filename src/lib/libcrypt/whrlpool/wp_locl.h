@@ -2,8 +2,8 @@
 
 #include <openssl/whrlpool.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 void whirlpool_block(WHIRLPOOL_CTX *,const void *,size_t);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

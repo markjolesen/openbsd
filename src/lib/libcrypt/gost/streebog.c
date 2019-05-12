@@ -49,12 +49,16 @@
  * ====================================================================
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/crypto.h>
@@ -62,6 +66,9 @@
 #include <openssl/gost.h>
 
 #include "gostlocl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 static const STREEBOG_LONG64 A_PI_table[8][256] = {
 	{ /* 0 */

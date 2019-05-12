@@ -56,9 +56,9 @@
  *
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "cryptlib.h"
 #include "eng_int.h"
@@ -79,10 +79,10 @@ ENGINE_load_builtin_engines_internal(void)
 void
 ENGINE_load_builtin_engines(void)
 {
-	static pthread_once_t once = PTHREAD_ONCE_INIT;
+	/* static pthread_once_t once = PTHREAD_ONCE_INIT; */
 
 	/* Prayer and clean living lets you ignore errors, OpenSSL style */
 	(void) OPENSSL_init_crypto(0, NULL);
-
-	(void) pthread_once(&once, ENGINE_load_builtin_engines_internal);
+	/* (void) pthread_once(&once, ENGINE_load_builtin_engines_internal);*/
+	ENGINE_load_builtin_engines_internal();
 }

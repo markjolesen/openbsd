@@ -55,7 +55,7 @@
  *
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/ts.h>
 #include <openssl/err.h>

@@ -15,7 +15,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_SM4
 #include <openssl/evp.h>
@@ -84,7 +84,7 @@ sm4_ctr_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out, const unsigned char *in,
 	EVP_SM4_KEY *key = EVP_C_DATA(EVP_SM4_KEY, ctx);
 
 	CRYPTO_ctr128_encrypt(in, out, len, &key->ks, ctx->iv, ctx->buf,
-	    &ctx->num, (block128_f)SM4_encrypt);
+	    (unsigned int*)&ctx->num, (block128_f)SM4_encrypt);
 	return 1;
 }
 

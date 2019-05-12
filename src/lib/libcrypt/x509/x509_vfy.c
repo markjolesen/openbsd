@@ -62,7 +62,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1.h>
 #include <openssl/buffer.h>
@@ -76,6 +76,9 @@
 #include "asn1locl.h"
 #include "vpm_int.h"
 #include "x509_lcl.h"
+
+/* TEMP: _mjo */
+time_t timegm(struct tm *tm);
 
 /* CRL score values */
 
@@ -1905,7 +1908,8 @@ X509_cmp_time_internal(const ASN1_TIME *ctm, time_t *cmp_time, int clamp_notafte
 	if ((time1 = timegm(&tm1)) == -1)
 		goto out;
 
-	if (gmtime_r(&time2, &tm2) == NULL)
+	/* if (gmtime_r(&time2, &tm2) == NULL) */
+	if (_gmtime(&time2, &tm2) == NULL)
 		goto out;
 
 	ret = ASN1_time_tm_cmp(&tm1, &tm2);

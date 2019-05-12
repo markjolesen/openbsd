@@ -56,13 +56,16 @@
  *
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "ecs_locl.h"
 #include "ec_lcl.h"
 #ifndef OPENSSL_NO_ENGINE
 #include <openssl/engine.h>
 #endif
+
+/* TEMP: _mjo */
+#include <openssl/err.h>
 
 /* returns
  *      1: correct signature

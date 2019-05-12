@@ -63,7 +63,7 @@
 #include <openssl/ui.h>
 #include <openssl/crypto.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #ifdef _
 #undef _
@@ -147,6 +147,6 @@ struct ui_st {
 	int flags;
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

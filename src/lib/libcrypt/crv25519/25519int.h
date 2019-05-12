@@ -19,7 +19,7 @@
 
 #include <stdint.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* fe means field element. Here the field is \Z/(2^255-19). An element t,
  * entries t[0]...t[9], represents the integer t[0]+2^26 t[1]+2^51 t[2]+2^77
@@ -93,6 +93,6 @@ void x25519_scalar_mult(uint8_t out[32], const uint8_t scalar[32],
 void x25519_scalar_mult_generic(uint8_t out[32], const uint8_t scalar[32],
     const uint8_t point[32]);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif  /* HEADER_CURVE25519_INTERNAL_H */

@@ -112,7 +112,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/evp.h>
@@ -121,6 +121,9 @@
 #ifndef OPENSSL_NO_ENGINE
 #include <openssl/engine.h>
 #endif
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 int
 EVP_DigestInit(EVP_MD_CTX *ctx, const EVP_MD *type)

@@ -64,6 +64,9 @@
 #include <openssl/err.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
+
 /* PKCS#5 password based encryption structure */
 
 static const ASN1_TEMPLATE PBEPARAM_seq_tt[] = {

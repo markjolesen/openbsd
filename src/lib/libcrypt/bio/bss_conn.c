@@ -59,6 +59,7 @@
 #include <sys/socket.h>
 
 #include <netinet/in.h>
+#include <arpa/inet.h>
 
 #include <errno.h>
 #include <netdb.h>
@@ -71,6 +72,11 @@
 #include <openssl/err.h>
 
 #define SOCKET_PROTOCOL IPPROTO_TCP
+
+/* TEMP: _mjo */
+int asprintf(char **ret, const char* format, ...);
+u_int16_t htons(u_int16_t x);
+u_int32_t htonl(u_int32_t x);
 
 typedef struct bio_connect_st {
 	int state;
@@ -346,8 +352,9 @@ conn_close_socket(BIO *bio)
 	if (bio->num != -1) {
 		/* Only do a shutdown if things were established */
 		if (c->state == BIO_CONN_S_OK)
-			shutdown(bio->num, SHUT_RDWR);
-		close(bio->num);
+			shutdown(bio->num, 2 /*SHUT_RDWR*/);
+		/* close(bio->num); */
+		closesocket(bio->num);
 		bio->num = -1;
 	}
 }

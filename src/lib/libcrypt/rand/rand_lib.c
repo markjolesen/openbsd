@@ -17,9 +17,12 @@
 
 #include <stdlib.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/rand.h>
+
+/* TEMP: _mjo */
+void arc4random_buf(void *buf, size_t nbytes);
 
 /*
  * The useful functions in this file are at the bottom.

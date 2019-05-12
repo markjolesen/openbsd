@@ -53,7 +53,7 @@
  *
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_ENGINE
 #include <openssl/engine.h>
@@ -61,6 +61,9 @@
 
 #include "ecs_locl.h"
 #include "ec_lcl.h"
+
+/* TEMP: _mjo */
+#include <openssl/err.h>
 
 ECDSA_SIG *
 ECDSA_do_sign(const unsigned char *dgst, int dlen, EC_KEY *eckey)

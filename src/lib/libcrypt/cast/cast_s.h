@@ -56,7 +56,7 @@
  * [including the GNU Public Licence.]
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 const CAST_LONG CAST_S_table0[256]={
 	0x30fb40d4,0x9fa0ff0b,0x6beccd2f,0x3f258c7a,
@@ -587,4 +587,4 @@ const CAST_LONG CAST_S_table7[256]={
 	0x50b2ad80,0xeaee6801,0x8db2a283,0xea8bf59e,
 	};
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

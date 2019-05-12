@@ -28,7 +28,7 @@ HDRS=\
 	${LCRYPTO_SRC}/conf/conf.h \
 	${LCRYPTO_SRC}/conf/conf_api.h \
 	${LCRYPTO_SRC}/crypto.h \
-	${LCRYPTO_SRC}/curve25519/crv25519.h \
+	${LCRYPTO_SRC}/crv25519/crv25519.h \
 	${LCRYPTO_SRC}/des/des.h \
 	${LCRYPTO_SRC}/dh/dh.h \
 	${LCRYPTO_SRC}/dsa/dsa.h \
@@ -70,7 +70,7 @@ HDRS=\
 	${LCRYPTO_SRC}/ts/ts.h \
 	${LCRYPTO_SRC}/txt_db/txt_db.h \
 	${LCRYPTO_SRC}/ui/ui.h \
-	${LCRYPTO_SRC}/ui/ui_compat.h \
+	${LCRYPTO_SRC}/ui/uicompat.h \
 	${LCRYPTO_SRC}/whrlpool/whrlpool.h \
 	${LCRYPTO_SRC}/x509/x509.h \
 	${LCRYPTO_SRC}/x509/x509_vfy.h \

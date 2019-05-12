@@ -62,6 +62,9 @@
 #include <openssl/buffer.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+void* recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
+
 int
 i2a_ASN1_INTEGER(BIO *bp, const ASN1_INTEGER *a)
 {

@@ -65,6 +65,11 @@
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+void arc4random_buf(void *b, size_t nbytes);
+void explicit_bzero(void *b, size_t len);
+
 static int add_attribute(STACK_OF(X509_ATTRIBUTE) **sk, int nid, int atrtype,
     void *value);
 static ASN1_TYPE *get_attribute(STACK_OF(X509_ATTRIBUTE) *sk, int nid);

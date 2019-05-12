@@ -98,10 +98,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/crypto.h>
 #include <openssl/lhash.h>
+
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
 
 #undef MIN_NODES
 #define MIN_NODES	16

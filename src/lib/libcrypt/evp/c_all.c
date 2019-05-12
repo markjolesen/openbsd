@@ -57,9 +57,9 @@
  */
 
 #include <stdio.h>
-#include <pthread.h>
+/* #include <pthread.h> */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/conf.h>
 #include <openssl/evp.h>
@@ -245,8 +245,11 @@ OpenSSL_add_all_ciphers_internal(void)
 void
 OpenSSL_add_all_ciphers(void)
 {
+/*
 	static pthread_once_t add_all_ciphers_once = PTHREAD_ONCE_INIT;
 	(void) pthread_once(&add_all_ciphers_once, OpenSSL_add_all_ciphers_internal);
+*/
+        OpenSSL_add_all_ciphers_internal();
 }
 
 static void
@@ -313,8 +316,11 @@ OpenSSL_add_all_digests_internal(void)
 void
 OpenSSL_add_all_digests(void)
 {
+/*
 	static pthread_once_t add_all_digests_once = PTHREAD_ONCE_INIT;
 	(void) pthread_once(&add_all_digests_once, OpenSSL_add_all_digests_internal);
+*/
+	OpenSSL_add_all_digests_internal();
 }
 
 void

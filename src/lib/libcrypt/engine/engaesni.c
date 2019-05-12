@@ -75,7 +75,7 @@
 
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if !defined(OPENSSL_NO_HW) && !defined(OPENSSL_NO_HW_AES_NI) && !defined(OPENSSL_NO_AES)
 

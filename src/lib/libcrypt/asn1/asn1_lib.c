@@ -63,6 +63,9 @@
 #include <openssl/asn1.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 static int asn1_get_length(const unsigned char **pp, int *inf, long *rl, int max);
 static void asn1_put_length(unsigned char **pp, int length);
 

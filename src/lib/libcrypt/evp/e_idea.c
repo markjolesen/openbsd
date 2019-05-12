@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_IDEA
 
@@ -68,6 +68,9 @@
 #include <openssl/objects.h>
 
 #include "evp_locl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 static int idea_init_key(EVP_CIPHER_CTX *ctx, const unsigned char *key,
     const unsigned char *iv, int enc);

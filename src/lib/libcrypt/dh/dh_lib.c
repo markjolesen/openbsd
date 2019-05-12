@@ -59,7 +59,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bn.h>
 #include <openssl/dh.h>
@@ -327,7 +327,7 @@ DH_set_flags(DH *dh, int flags)
 int
 DH_set_length(DH *dh, long length)
 {
-	if (length < 0 || length > INT_MAX)
+	if (length < 0 || length >= INT_MAX)
 		return 0;
 
 	dh->length = length;

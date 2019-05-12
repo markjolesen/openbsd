@@ -58,7 +58,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "ec_lcl.h"
 #include <openssl/err.h>
@@ -1396,7 +1396,7 @@ d2i_ECPrivateKey(EC_KEY ** a, const unsigned char **in, long len)
 
 	if (priv_key->publicKey) {
 		const unsigned char *pub_oct;
-		size_t pub_oct_len;
+		long pub_oct_len;
 
 		pub_oct = ASN1_STRING_data(priv_key->publicKey);
 		pub_oct_len = ASN1_STRING_length(priv_key->publicKey);

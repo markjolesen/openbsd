@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/buffer.h>
 #include <openssl/err.h>
@@ -74,6 +74,9 @@
 #endif
 
 #include "asn1locl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 int pem_check_suffix(const char *pem_str, const char *suffix);
 

@@ -342,7 +342,8 @@ OCSP_check_validity(ASN1_GENERALIZEDTIME *thisupd,
 		return 0;
 	} else {
 		t_tmp = t_now + nsec;
-		if (gmtime_r(&t_tmp, &tm_tmp) == NULL)
+		/* if (gmtime_r(&t_tmp, &tm_tmp) == NULL) */
+		if (_gmtime(&t_tmp, &tm_tmp) == NULL)
 			return 0;
 		if (ASN1_time_tm_cmp(&tm_this, &tm_tmp) > 0) {
 			OCSPerror(OCSP_R_STATUS_NOT_YET_VALID);

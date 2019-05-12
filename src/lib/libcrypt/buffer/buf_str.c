@@ -22,6 +22,9 @@
 #include <openssl/buffer.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+char* strndup(const char* s, size_t maxlen);
+
 /*
  * XXX these functions accept a NULL arg and return NULL
  * when the standard ones do not. we should at an appropriate

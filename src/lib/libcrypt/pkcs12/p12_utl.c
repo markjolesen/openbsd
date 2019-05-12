@@ -62,6 +62,9 @@
 
 #include <openssl/pkcs12.h>
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
 /* Cheap and nasty Unicode stuff */
 
 unsigned char *

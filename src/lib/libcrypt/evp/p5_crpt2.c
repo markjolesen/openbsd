@@ -60,7 +60,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if !defined(OPENSSL_NO_HMAC) && !defined(OPENSSL_NO_SHA)
 
@@ -70,6 +70,9 @@
 #include <openssl/x509.h>
 
 #include "evp_locl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 /* This is an implementation of PKCS#5 v2.0 password based encryption key
  * derivation function PBKDF2.

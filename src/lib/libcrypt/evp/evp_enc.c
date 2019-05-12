@@ -62,7 +62,7 @@
 
 #include <sys/types.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/evp.h>
@@ -72,6 +72,11 @@
 #endif
 
 #include "evp_locl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+void freezero(void *ptr, size_t size);
+void arc4random_buf(void *b, size_t nbytes);
 
 #define M_do_cipher(ctx, out, in, inl) ctx->cipher->do_cipher(ctx, out, in, inl)
 
@@ -251,8 +256,10 @@ EVP_CipherFinal_ex(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)
 		return EVP_DecryptFinal_ex(ctx, out, outl);
 }
 
+/*
 __warn_references(EVP_CipherFinal,
     "EVP_CipherFinal is often misused, please use EVP_CipherFinal_ex and EVP_CIPHER_CTX_cleanup");
+*/
 
 int
 EVP_CipherFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)
@@ -361,8 +368,10 @@ EVP_EncryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl,
 	return 1;
 }
 
+/*
 __warn_references(EVP_EncryptFinal,
     "EVP_EncryptFinal is often misused, please use EVP_EncryptFinal_ex and EVP_CIPHER_CTX_cleanup");
+*/
 
 int
 EVP_EncryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)
@@ -476,8 +485,10 @@ EVP_DecryptUpdate(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl,
 	return 1;
 }
 
+/*
 __warn_references(EVP_DecryptFinal,
     "EVP_DecryptFinal is often misused, please use EVP_DecryptFinal_ex and EVP_CIPHER_CTX_cleanup");
+*/
 
 int
 EVP_DecryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)

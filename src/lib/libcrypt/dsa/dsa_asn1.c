@@ -64,6 +64,11 @@
 #include <openssl/dsa.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+#include <openssl/bn.h>
+void freezero(void *ptr, size_t size);
+
+
 /* Override the default new methods */
 static int
 sig_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it, void *exarg)

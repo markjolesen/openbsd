@@ -63,7 +63,7 @@
 #ifndef HEADER_LHASH_H
 #define HEADER_LHASH_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <stdio.h>
 

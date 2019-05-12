@@ -61,7 +61,7 @@
 
 #include <openssl/ecdsa.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 typedef struct ecdsa_data_st {
 	/* EC_KEY_METH_DATA part */
@@ -89,6 +89,6 @@ int ossl_ecdsa_sign(int type, const unsigned char *dgst, int dlen,
 ECDSA_SIG *ossl_ecdsa_sign_sig(const unsigned char *dgst, int dgst_len,
     const BIGNUM *in_kinv, const BIGNUM *in_r, EC_KEY *eckey);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif /* HEADER_ECS_LOCL_H */

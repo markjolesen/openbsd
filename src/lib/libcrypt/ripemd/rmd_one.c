@@ -61,6 +61,8 @@
 #include <openssl/ripemd.h>
 #include <openssl/crypto.h>
 
+extern void explicit_bzero(void* b, size_t len); /* TEMP: _mjo */
+
 unsigned char *RIPEMD160(const unsigned char *d, size_t n,
 	     unsigned char *md)
 	{

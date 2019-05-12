@@ -121,10 +121,10 @@
 #ifndef HEADER_CRYPTO_H
 #define HEADER_CRYPTO_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/stack.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 #include <openssl/opensslv.h>
 #include <openssl/ossl_typ.h>
 

@@ -63,6 +63,9 @@
 
 #include "asn1locl.h"
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 #define HMAC_TEST_PRIVATE_KEY_FORMAT
 
 /* HMAC "ASN1" method. This is just here to indicate the

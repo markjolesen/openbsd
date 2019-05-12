@@ -68,7 +68,7 @@
 #ifndef HEADER_CAMELLIA_LOCL_H
 #define HEADER_CAMELLIA_LOCL_H
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 typedef unsigned int  u32;
 typedef unsigned char u8;
@@ -84,6 +84,6 @@ void Camellia_EncryptBlock(int keyBitLength, const u8 plaintext[],
 void Camellia_DecryptBlock(int keyBitLength, const u8 ciphertext[],
 	    const KEY_TABLE_TYPE keyTable, u8 plaintext[]);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif /* #ifndef HEADER_CAMELLIA_LOCL_H */

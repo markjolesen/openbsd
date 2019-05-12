@@ -58,7 +58,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/obj_mac.h>
@@ -66,6 +66,9 @@
 
 #include "bn_lcl.h"
 #include "ecs_locl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 static int ecdsa_prepare_digest(const unsigned char *dgst, int dgst_len,
     BIGNUM *order, BIGNUM *ret);

@@ -51,7 +51,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/bn.h>
@@ -65,6 +65,9 @@
 #include "evp_locl.h"
 #include "gostlocl.h"
 #include "gostasn1.h"
+
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
 
 static ECDSA_SIG *
 unpack_signature_cp(const unsigned char *sig, size_t siglen)

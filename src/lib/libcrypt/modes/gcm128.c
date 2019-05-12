@@ -54,6 +54,11 @@
 #include "modeslcl.h"
 #include <string.h>
 
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
+void freezero(void *ptr, size_t size);
+
 #ifndef MODES_DEBUG
 # ifndef NDEBUG
 #  define NDEBUG
@@ -144,6 +149,8 @@ static void gcm_init_8bit(u128 Htable[256], u64 H[2])
 
 static void gcm_gmult_8bit(u64 Xi[2], const u128 Htable[256])
 {
+	u8 *p;
+	u32 v;
 	u128 Z = { 0, 0};
 	const u8 *xi = (const u8 *)Xi+15;
 	size_t rem, n = *xi;
@@ -236,8 +243,7 @@ static void gcm_gmult_8bit(u64 Xi[2], const u128 Htable[256])
 	Xi[0] = BSWAP8(Z.hi);
 	Xi[1] = BSWAP8(Z.lo);
 #else
-	u8 *p = (u8 *)Xi;
-	u32 v;
+	p = (u8 *)Xi;
 	v = (u32)(Z.hi>>32);	PUTU32(p,v);
 	v = (u32)(Z.hi);	PUTU32(p+4,v);
 	v = (u32)(Z.lo>>32);	PUTU32(p+8,v);
@@ -335,6 +341,8 @@ static void gcm_gmult_4bit(u64 Xi[2], const u128 Htable[16])
 	u128 Z;
 	int cnt = 15;
 	size_t rem, nlo, nhi;
+	u8 *p;
+	u32 v;
 
 	nlo  = ((const u8 *)Xi)[15];
 	nhi  = nlo>>4;
@@ -378,8 +386,7 @@ static void gcm_gmult_4bit(u64 Xi[2], const u128 Htable[16])
 	Xi[0] = BSWAP8(Z.hi);
 	Xi[1] = BSWAP8(Z.lo);
 #else
-	u8 *p = (u8 *)Xi;
-	u32 v;
+	p = (u8 *)Xi;
 	v = (u32)(Z.hi>>32);	PUTU32(p,v);
 	v = (u32)(Z.hi);	PUTU32(p+4,v);
 	v = (u32)(Z.lo>>32);	PUTU32(p+8,v);
@@ -405,6 +412,8 @@ static void gcm_ghash_4bit(u64 Xi[2],const u128 Htable[16],
     u128 Z;
     int cnt;
     size_t rem, nlo, nhi;
+    u8 *p;
+    u32 v;
 
 #if 1
     do {
@@ -546,8 +555,7 @@ static void gcm_ghash_4bit(u64 Xi[2],const u128 Htable[16],
 	Xi[0] = BSWAP8(Z.hi);
 	Xi[1] = BSWAP8(Z.lo);
 #else
-	u8 *p = (u8 *)Xi;
-	u32 v;
+	p = (u8 *)Xi;
 	v = (u32)(Z.hi>>32);	PUTU32(p,v);
 	v = (u32)(Z.hi);	PUTU32(p+4,v);
 	v = (u32)(Z.lo>>32);	PUTU32(p+8,v);
@@ -681,6 +689,8 @@ void gcm_ghash_neon(u64 Xi[2],const u128 Htable[16],const u8 *inp,size_t len);
 
 void CRYPTO_gcm128_init(GCM128_CONTEXT *ctx,void *key,block128_f block)
 {
+	u8 *p;
+	u64 hi,lo;
 	memset(ctx,0,sizeof(*ctx));
 	ctx->block = block;
 	ctx->key   = key;
@@ -693,8 +703,7 @@ void CRYPTO_gcm128_init(GCM128_CONTEXT *ctx,void *key,block128_f block)
 	ctx->H.u[0] = BSWAP8(ctx->H.u[0]);
 	ctx->H.u[1] = BSWAP8(ctx->H.u[1]);
 #else
-	u8 *p = ctx->H.c;
-	u64 hi,lo;
+	p = ctx->H.c;
 	hi = (u64)GETU32(p)  <<32|GETU32(p+4);
 	lo = (u64)GETU32(p+8)<<32|GETU32(p+12);
 	ctx->H.u[0] = hi;

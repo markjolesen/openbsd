@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if !defined(OPENSSL_NO_SHA) && !defined(OPENSSL_NO_SHA1)
 
@@ -31,6 +31,12 @@
 #include <openssl/evp.h>
 #include <openssl/rsa.h>
 #include <openssl/sha.h>
+
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
+void freezero(void *ptr, size_t size);
+int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
+int timingsafe_memcmp(const void* b1, const void *b2, size_t len);
 
 static int MGF1(unsigned char *mask, long len, const unsigned char *seed,
     long seedlen);

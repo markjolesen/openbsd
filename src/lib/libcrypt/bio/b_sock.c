@@ -34,6 +34,13 @@
 #include <openssl/buffer.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+int asprintf(char **ret, const char* format, ...);
+u_int16_t htons(u_int16_t x);
+u_int32_t htonl(u_int32_t x);
+uint16_t ntohs(uint16_t x);
+typedef uint32_t in_addr_t;
+
 int
 BIO_get_host_ip(const char *str, unsigned char *ip)
 {
@@ -109,12 +116,15 @@ BIO_gethostbyname(const char *name)
 int
 BIO_socket_ioctl(int fd, long type, void *arg)
 {
+#if 0
 	int ret;
 
 	ret = ioctl(fd, type, arg);
 	if (ret < 0)
 		SYSerror(errno);
 	return (ret);
+#endif
+	return -1;
 }
 
 int

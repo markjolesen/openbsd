@@ -59,7 +59,7 @@
 #ifndef HEADER_NEW_DES_H
 #define HEADER_NEW_DES_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef OPENSSL_NO_DES
 #error DES is disabled.

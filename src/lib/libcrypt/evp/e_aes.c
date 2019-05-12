@@ -53,7 +53,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_AES
 #include <openssl/aes.h>
@@ -62,6 +62,12 @@
 
 #include "evp_locl.h"
 #include "modeslcl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+void arc4random_buf(void *b, size_t nbytes);
+void freezero(void *ptr, size_t size);
+int timingsafe_memcmp(const void *b1, const void* b2, size_t len);
 
 typedef struct {
 	AES_KEY ks;

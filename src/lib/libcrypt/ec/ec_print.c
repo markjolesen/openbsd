@@ -56,6 +56,9 @@
 #include <openssl/crypto.h>
 #include "ec_lcl.h"
 
+/* TEMP: _mjo */
+void* recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
+
 BIGNUM *
 EC_POINT_point2bn(const EC_GROUP * group, const EC_POINT * point,
     point_conversion_form_t form, BIGNUM * ret, BN_CTX * ctx)

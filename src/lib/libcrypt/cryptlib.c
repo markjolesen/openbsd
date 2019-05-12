@@ -114,15 +114,17 @@
  * SUN MICROSYSTEMS, INC., and contributed to the OpenSSL project.
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
-#include <syslog.h>
+/* #include <syslog.h> _mjo */
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/crypto.h>
+
+const char* getprogname(); /* TEMP: _mjo */
 
 static void (*locking_callback)(int mode, int type,
     const char *file, int line) = NULL;
@@ -150,7 +152,8 @@ CRYPTO_set_id_callback(unsigned long (*func)(void))
 unsigned long
 CRYPTO_thread_id(void)
 {
-	return (unsigned long)pthread_self();
+	/* return (unsigned long)pthread_self(); */
+	return (unsigned long)0;
 }
 
 void
@@ -279,7 +282,7 @@ void
 CRYPTO_THREADID_current(CRYPTO_THREADID *id)
 {
 	memset(id, 0, sizeof(*id));
-	id->val = (unsigned long)pthread_self();
+	id->val = (unsigned long)0/*pthread_self()*/;
 }
 
 int
@@ -345,11 +348,12 @@ OPENSSL_cpuid_setup(void)
 static void
 OPENSSL_showfatal(const char *fmta, ...)
 {
-	struct syslog_data sdata = SYSLOG_DATA_INIT;
+	/* struct syslog_data sdata = SYSLOG_DATA_INIT; */
 	va_list ap;
 
 	va_start(ap, fmta);
-	vsyslog_r(LOG_INFO|LOG_LOCAL2, &sdata, fmta, ap);
+	/* vsyslog_r(LOG_INFO|LOG_LOCAL2, &sdata, fmta, ap); */
+	printf(fmta, ap);
 	va_end(ap);
 }
 
@@ -358,7 +362,7 @@ OpenSSLDie(const char *file, int line, const char *assertion)
 {
 	OPENSSL_showfatal(
 	    "uid %u cmd %s %s(%d): OpenSSL internal error, assertion failed: %s\n",
-	    getuid(), getprogname(), file, line, assertion);
+	    /* getuid() */0, getprogname(), file, line, assertion);
 	_exit(1);
 }
 

@@ -59,7 +59,7 @@
 #ifndef HEADER_TS_H
 #define HEADER_TS_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_BUFFER
 #include <openssl/buffer.h>
@@ -72,7 +72,7 @@
 #endif
 #include <openssl/stack.h>
 #include <openssl/asn1.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 
 #ifndef OPENSSL_NO_RSA
 #include <openssl/rsa.h>

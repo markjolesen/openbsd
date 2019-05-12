@@ -111,7 +111,7 @@
 
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/evp.h>
 #include <openssl/objects.h>

@@ -61,10 +61,10 @@
 
 #include <time.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 int OPENSSL_gmtime_adj(struct tm *tm, int offset_day, long offset_sec);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

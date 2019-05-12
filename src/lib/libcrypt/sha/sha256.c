@@ -5,11 +5,14 @@
  * ====================================================================
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if !defined(OPENSSL_NO_SHA) && !defined(OPENSSL_NO_SHA256)
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +20,9 @@
 #include <openssl/crypto.h>
 #include <openssl/sha.h>
 #include <openssl/opensslv.h>
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 int SHA224_Init(SHA256_CTX *c)
 	{

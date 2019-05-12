@@ -64,6 +64,9 @@
 #include <openssl/err.h>
 #include <openssl/rsa.h>
 
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
+
 int
 RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen,
     const unsigned char *from, int flen)

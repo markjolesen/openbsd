@@ -68,6 +68,9 @@
 
 #include "vpm_int.h"
 
+/* TEMP: _mjo */
+char* strndup(const char *s, size_t size);
+
 /* X509_VERIFY_PARAM functions */
 
 int X509_VERIFY_PARAM_set1_email(X509_VERIFY_PARAM *param, const char *email,

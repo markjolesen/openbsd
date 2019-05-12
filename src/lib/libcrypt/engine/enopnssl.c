@@ -64,7 +64,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/crypto.h>
 #include <openssl/dso.h>

@@ -51,13 +51,16 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/objects.h>
 #include <openssl/gost.h>
 
 #include "gostlocl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 static inline unsigned int
 f(const GOST2814789_KEY *c, unsigned int x)

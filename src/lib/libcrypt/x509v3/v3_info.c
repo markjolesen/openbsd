@@ -65,6 +65,9 @@
 #include <openssl/err.h>
 #include <openssl/x509v3.h>
 
+/* TEMP: _mjo */
+int asprintf(char** ret, const char* format, ...);
+
 static STACK_OF(CONF_VALUE) *i2v_AUTHORITY_INFO_ACCESS(
     X509V3_EXT_METHOD *method, AUTHORITY_INFO_ACCESS *ainfo,
     STACK_OF(CONF_VALUE) *ret);

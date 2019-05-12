@@ -64,13 +64,16 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 #include <openssl/lhash.h>
 #include <openssl/x509.h>
 
 # include <sys/stat.h>
+
+/* TEMP: _mjo */
+char* strndup(const char *s, size_t size);
 
 typedef struct lookup_dir_hashes_st {
 	unsigned long hash;

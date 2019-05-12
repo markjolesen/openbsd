@@ -124,6 +124,9 @@
 
 #include "asn1locl.h"
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 int
 ASN1_item_sign(const ASN1_ITEM *it, X509_ALGOR *algor1, X509_ALGOR *algor2,
     ASN1_BIT_STRING *signature, void *asn, EVP_PKEY *pkey, const EVP_MD *type)

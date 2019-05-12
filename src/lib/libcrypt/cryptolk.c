@@ -15,10 +15,11 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 
 #include <openssl/crypto.h>
 
+#if 0
 static pthread_mutex_t locks[] = {
 	PTHREAD_MUTEX_INITIALIZER,
 	PTHREAD_MUTEX_INITIALIZER,
@@ -67,10 +68,12 @@ static pthread_mutex_t locks[] = {
 			    __attribute__((__unused__))
 
 CTASSERT((sizeof(locks) / sizeof(*locks)) == CRYPTO_NUM_LOCKS);
+#endif
 
 void
 CRYPTO_lock(int mode, int type, const char *file, int line)
 {
+#if 0
 	if (type < 0 || type >= CRYPTO_NUM_LOCKS)
 		return;
 
@@ -78,6 +81,7 @@ CRYPTO_lock(int mode, int type, const char *file, int line)
 		(void) pthread_mutex_lock(&locks[type]);
 	else if (mode & CRYPTO_UNLOCK)
 		(void) pthread_mutex_unlock(&locks[type]);
+#endif
 }
 
 int

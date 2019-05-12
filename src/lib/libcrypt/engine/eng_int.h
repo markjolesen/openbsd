@@ -67,7 +67,7 @@
 /* Take public definitions from engine.h */
 #include <openssl/engine.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* If we compile with this symbol defined, then both reference counts in the
  * ENGINE structure will be monitored with a line of output on stderr for each
@@ -198,6 +198,6 @@ struct engine_st {
 	struct engine_st *next;
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif /* HEADER_ENGINE_INT_H */

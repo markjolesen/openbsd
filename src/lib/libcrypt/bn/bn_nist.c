@@ -56,7 +56,11 @@
  *
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
 #include <stdint.h>
 #include <string.h>

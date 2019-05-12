@@ -56,7 +56,7 @@
  * [including the GNU Public Licence.]
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 const DES_LONG DES_SPtrans[8][64]={
 {
@@ -205,4 +205,4 @@ const DES_LONG DES_SPtrans[8][64]={
 0x20000000L, 0x20800080L, 0x00020000L, 0x00820080L,
 }};
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

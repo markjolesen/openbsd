@@ -63,6 +63,9 @@
 #include <openssl/err.h>
 #include <openssl/hmac.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 int
 HMAC_Init_ex(HMAC_CTX *ctx, const void *key, int len, const EVP_MD *md,
     ENGINE *impl)

@@ -65,6 +65,9 @@
 #include <openssl/ui.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 /* should be init to zeros. */
 static char prompt_string[80];
 

@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// _mjo temporary
+// TEMP: _mjo
 extern void* recallocarray(void *ptr, size_t oldnmemb, size_t newnmemb, size_t size);
 
 int

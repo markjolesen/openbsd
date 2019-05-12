@@ -58,7 +58,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/buffer.h>
 #include <openssl/err.h>
@@ -66,7 +66,9 @@
 
 #include "ui_locl.h"
 
-static const UI_METHOD *default_UI_meth = NULL;
+/* TEMP: _mjo */
+const UI_METHOD* default_UI_meth = 0;
+int asprintf(char** ret, const char* format, ...);
 
 UI *
 UI_new(void)

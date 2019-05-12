@@ -56,7 +56,7 @@
  * [including the GNU Public Licence.]
  */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 static const BF_KEY bf_init= {
 	{
@@ -325,4 +325,4 @@ static const BF_KEY bf_init= {
 	}
 	};
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

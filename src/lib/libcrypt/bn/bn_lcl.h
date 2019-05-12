@@ -112,11 +112,11 @@
 #ifndef HEADER_BN_LCL_H
 #define HEADER_BN_LCL_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bn.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /*
  * BN_window_bits_for_exponent_size -- macro for sliding window mod_exp functions
@@ -609,5 +609,5 @@ int	BN_gcd_nonct(BIGNUM *r, const BIGNUM *a, const BIGNUM *b, BN_CTX *ctx);
 
 int	BN_swap_ct(BN_ULONG swap, BIGNUM *a, BIGNUM *b, size_t nwords);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 #endif

@@ -71,7 +71,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "ec_lcl.h"
 #include <openssl/err.h>

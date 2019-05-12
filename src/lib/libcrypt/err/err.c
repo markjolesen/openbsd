@@ -109,18 +109,21 @@
  *
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/lhash.h>
+
+/* TEMP: _mjo */
+int vasprintf(char** ret, const char* format, va_list ap);
 
 DECLARE_LHASH_OF(ERR_STRING_DATA);
 DECLARE_LHASH_OF(ERR_STATE);
@@ -283,7 +286,7 @@ static LHASH_OF(ERR_STATE) *int_thread_hash = NULL;
 static int int_thread_hash_references = 0;
 static int int_err_library_number = ERR_LIB_USER;
 
-static pthread_t err_init_thread;
+/* static pthread_t err_init_thread; */
 
 /* Internal function that checks whether "err_fns" is set and if not, sets it to
  * the defaults. */
@@ -655,7 +658,7 @@ ERR_STATE_free(ERR_STATE *s)
 void
 ERR_load_ERR_strings_internal(void)
 {
-	err_init_thread = pthread_self();
+	/* err_init_thread = 0 pthread_self()*/;
 	err_fns_check();
 #ifndef OPENSSL_NO_ERR
 	err_load_strings(0, ERR_str_libraries);
@@ -670,15 +673,19 @@ ERR_load_ERR_strings_internal(void)
 void
 ERR_load_ERR_strings(void)
 {
+#if 0
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 	if (pthread_equal(pthread_self(), err_init_thread))
 		return; /* don't recurse */
-
+#endif
 	/* Prayer and clean living lets you ignore errors, OpenSSL style */
 	(void) OPENSSL_init_crypto(0, NULL);
-
+#if 0
 	(void) pthread_once(&once, ERR_load_ERR_strings_internal);
+#endif
+
+	ERR_load_ERR_strings_internal();
 }
 
 static void

@@ -56,7 +56,7 @@
  * [including the GNU Public Licence.]
  */
 
-#include <openssl/opensslconf.h> /* To see if OPENSSL_NO_SHA is defined */
+#include <openssl/sslcfg.h> /* To see if OPENSSL_NO_SHA is defined */
 
 #ifndef OPENSSL_NO_SHA
 
@@ -70,6 +70,9 @@
 
 #include "bn_lcl.h"
 #include "dsa_locl.h"
+
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
 
 int
 DSA_generate_parameters_ex(DSA *ret, int bits, const unsigned char *seed_in,

@@ -62,6 +62,9 @@
 #include <openssl/asn1.h>
 #include <openssl/err.h>
 
+/* TEMP: _mjo */
+void * recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
+
 int
 ASN1_BIT_STRING_set(ASN1_BIT_STRING *x, unsigned char *d, int len)
 {

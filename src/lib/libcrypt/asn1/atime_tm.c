@@ -25,6 +25,10 @@
 
 #include "o_time.h"
 
+/* TEMP: _mjo */
+int asprintf(char** ret, const char* format, ...);
+time_t timegm(struct tm *tm);
+
 #define RFC5280 0
 #define GENTIME_LENGTH 15
 #define UTCTIME_LENGTH 13
@@ -262,7 +266,8 @@ ASN1_TIME_adj_internal(ASN1_TIME *s, time_t t, int offset_day, long offset_sec,
 	size_t len;
 	char * p;
 
- 	if (gmtime_r(&t, &tm) == NULL)
+ 	/* if (gmtime_r(&t, &tm) == NULL) */
+ 	if (_gmtime(&t, &tm) == NULL)
  		return (NULL);
 
 	if (offset_day || offset_sec) {

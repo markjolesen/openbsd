@@ -64,7 +64,7 @@
 #define __bounded__(x, y, z)
 #endif
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -96,10 +96,10 @@ typedef struct MD5state_st
 
 int MD5_Init(MD5_CTX *c);
 int MD5_Update(MD5_CTX *c, const void *data, size_t len)
-	__attribute__ ((__bounded__(__buffer__,2,3)));
+	/* __attribute__ ((__bounded__(__buffer__,2,3)))*/;
 int MD5_Final(unsigned char *md, MD5_CTX *c);
 unsigned char *MD5(const unsigned char *d, size_t n, unsigned char *md)
-	__attribute__ ((__bounded__(__buffer__,1,2)));
+	/* __attribute__ ((__bounded__(__buffer__,1,2)))*/;
 void MD5_Transform(MD5_CTX *c, const unsigned char *b);
 #ifdef  __cplusplus
 }

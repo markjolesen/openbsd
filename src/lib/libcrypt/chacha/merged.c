@@ -15,6 +15,9 @@ Public domain.
 #define CHACHA_STATELEN		(CHACHA_NONCELEN+CHACHA_CTRLEN)
 #define CHACHA_BLOCKLEN		64
 
+typedef unsigned int u_int;
+typedef unsigned char u_char;
+
 struct chacha_ctx {
 	u_int input[16];
 	uint8_t ks[CHACHA_BLOCKLEN];
@@ -23,15 +26,15 @@ struct chacha_ctx {
 
 static inline void chacha_keysetup(struct chacha_ctx *x, const u_char *k,
     u_int kbits)
-    __attribute__((__bounded__(__minbytes__, 2, CHACHA_MINKEYLEN)));
+    /* __attribute__((__bounded__(__minbytes__, 2, CHACHA_MINKEYLEN))) */;
 static inline void chacha_ivsetup(struct chacha_ctx *x, const u_char *iv,
     const u_char *ctr)
-    __attribute__((__bounded__(__minbytes__, 2, CHACHA_NONCELEN)))
-    __attribute__((__bounded__(__minbytes__, 3, CHACHA_CTRLEN)));
+    /* __attribute__((__bounded__(__minbytes__, 2, CHACHA_NONCELEN)))
+    /* __attribute__((__bounded__(__minbytes__, 3, CHACHA_CTRLEN))) */;
 static inline void chacha_encrypt_bytes(struct chacha_ctx *x, const u_char *m,
     u_char *c, u_int bytes)
-    __attribute__((__bounded__(__buffer__, 2, 4)))
-    __attribute__((__bounded__(__buffer__, 3, 4)));
+    /* __attribute__((__bounded__(__buffer__, 2, 4)))
+    /* __attribute__((__bounded__(__buffer__, 3, 4))) */;
 
 typedef unsigned char u8;
 typedef unsigned int u32;
@@ -112,8 +115,8 @@ chacha_keysetup(chacha_ctx *x, const u8 *k, u32 kbits)
 static inline void
 chacha_ivsetup(chacha_ctx *x, const u8 *iv, const u8 *counter)
 {
-	x->input[12] = counter == NULL ? 0 : U8TO32_LITTLE(counter + 0);
-	x->input[13] = counter == NULL ? 0 : U8TO32_LITTLE(counter + 4);
+	x->input[12] = counter == 0 ? 0 : U8TO32_LITTLE(counter + 0);
+	x->input[13] = counter == 0 ? 0 : U8TO32_LITTLE(counter + 4);
 	x->input[14] = U8TO32_LITTLE(iv + 0);
 	x->input[15] = U8TO32_LITTLE(iv + 4);
 }
@@ -125,7 +128,7 @@ chacha_encrypt_bytes(chacha_ctx *x, const u8 *m, u8 *c, u32 bytes)
 	u32 x8, x9, x10, x11, x12, x13, x14, x15;
 	u32 j0, j1, j2, j3, j4, j5, j6, j7;
 	u32 j8, j9, j10, j11, j12, j13, j14, j15;
-	u8 *ctarget = NULL;
+	u8 *ctarget = 0;
 	u8 tmp[64];
 	u_int i;
 

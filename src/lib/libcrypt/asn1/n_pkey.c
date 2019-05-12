@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_RSA
 #include <openssl/asn1t.h>
@@ -68,6 +68,9 @@
 #include <openssl/objects.h>
 #include <openssl/rsa.h>
 #include <openssl/x509.h>
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 #ifndef OPENSSL_NO_RC4
 

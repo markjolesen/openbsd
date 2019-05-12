@@ -52,7 +52,7 @@
 #ifndef HEADER_GOST_H
 #define HEADER_GOST_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef OPENSSL_NO_GOST
 #error GOST is disabled.

@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/evp.h>
 #include <openssl/objects.h>
@@ -68,6 +68,9 @@
 #ifndef OPENSSL_NO_RSA
 #include <openssl/rsa.h>
 #endif
+
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
 
 int
 EVP_SealInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type, unsigned char **ek,

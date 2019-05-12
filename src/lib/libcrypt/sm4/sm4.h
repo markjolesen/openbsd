@@ -20,7 +20,7 @@
 
 #include <stdint.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef  __cplusplus
 extern "C" {

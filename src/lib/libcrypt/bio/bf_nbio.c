@@ -62,6 +62,9 @@
 
 #include <openssl/bio.h>
 
+/* TEMP: _mjo */
+void arc4random_buf(void *b, size_t nbytes);
+
 /* BIO_put and BIO_get both add to the digest,
  * BIO_gets returns the digest */
 

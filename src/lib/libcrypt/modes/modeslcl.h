@@ -6,13 +6,16 @@
  * ====================================================================
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/modes.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #if defined(_LP64)
 typedef long i64;
@@ -108,4 +111,4 @@ struct ccm128_context {
 	void *key;
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

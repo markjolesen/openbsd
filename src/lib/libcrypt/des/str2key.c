@@ -59,6 +59,9 @@
 #include <openssl/crypto.h>
 #include "des_locl.h"
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 void DES_string_to_key(const char *str, DES_cblock *key)
 	{
 	DES_key_schedule ks;

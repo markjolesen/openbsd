@@ -226,7 +226,7 @@ c2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **pp, long len)
 
 	/* We must malloc stuff, even for 0 bytes otherwise it
 	 * signifies a missing NULL parameter. */
-	if (len < 0 || len > INT_MAX) {
+	if (len < 0 || len > (INT_MAX - 1)) {
 		i = ERR_R_ASN1_LENGTH_MISMATCH;
 		goto err;
 	}
@@ -337,7 +337,7 @@ d2i_ASN1_UINTEGER(ASN1_INTEGER **a, const unsigned char **pp, long length)
 
 	/* We must malloc stuff, even for 0 bytes otherwise it
 	 * signifies a missing NULL parameter. */
-	if (len < 0 || len > INT_MAX) {
+	if (len < 0 || len > (INT_MAX - 1)) {
 		i = ERR_R_ASN1_LENGTH_MISMATCH;
 		goto err;
 	}

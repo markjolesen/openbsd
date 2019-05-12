@@ -62,6 +62,9 @@
 #include <openssl/err.h>
 #include <openssl/pkcs12.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 /* Encrypt/Decrypt a buffer based on password and algor, result in a
  * malloc'ed buffer
  */

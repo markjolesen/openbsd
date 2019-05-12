@@ -56,6 +56,9 @@
 #include <openssl/aes.h>
 #include <openssl/bio.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 static const unsigned char default_iv[] = {
 	0xA6, 0xA6, 0xA6, 0xA6, 0xA6, 0xA6, 0xA6, 0xA6,
 };

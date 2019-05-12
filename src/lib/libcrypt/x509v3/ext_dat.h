@@ -56,9 +56,9 @@
  *
  */
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 /* This file contains a table of "standard" extensions */
 
@@ -130,4 +130,4 @@ static const X509V3_EXT_METHOD *standard_exts[] = {
 /* Number of standard extensions */
 #define STANDARD_EXTENSION_COUNT (sizeof(standard_exts)/sizeof(X509V3_EXT_METHOD *))
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

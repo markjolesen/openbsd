@@ -56,7 +56,8 @@
  *
  */
 
-#include <sys/time.h>
+/* #include <sys/time.h> */
+#include <time.h>
 
 #include <string.h>
 
@@ -113,6 +114,7 @@ err:
 static int
 def_time_cb(struct TS_resp_ctx *ctx, void *data, time_t *sec, long *usec)
 {
+#if 0
 	struct timeval tv;
 
 	if (gettimeofday(&tv, NULL) != 0) {
@@ -125,6 +127,10 @@ def_time_cb(struct TS_resp_ctx *ctx, void *data, time_t *sec, long *usec)
 	/* Return time to caller. */
 	*sec = tv.tv_sec;
 	*usec = tv.tv_usec;
+#endif
+
+	time(sec);
+	*usec= 0;
 
 	return 1;
 }

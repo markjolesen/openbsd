@@ -48,7 +48,12 @@
  * ====================================================================
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
+
 #include <openssl/crypto.h>
 #include "modeslcl.h"
 #include <string.h>
@@ -65,6 +70,7 @@ int CRYPTO_xts128_encrypt(const XTS128_CONTEXT *ctx, const unsigned char iv[16],
 {
 	union { u64 u[2]; u32 d[4]; u8 c[16]; } tweak, scratch;
 	unsigned int i;
+	unsigned int carry,res;
 
 	if (len<16) return -1;
 
@@ -99,7 +105,6 @@ int CRYPTO_xts128_encrypt(const XTS128_CONTEXT *ctx, const unsigned char iv[16],
 		if (len==0)	return 0;
 
 #if BYTE_ORDER == LITTLE_ENDIAN
-		unsigned int carry,res;
 
 		res = 0x87&(((int)tweak.d[3])>>31);
 		carry = (unsigned int)(tweak.u[0]>>63);

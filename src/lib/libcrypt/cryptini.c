@@ -16,7 +16,7 @@
 
 /* OpenSSL style init */
 
-#include <pthread.h>
+/* _mjo #include <pthread.h> */
 #include <stdio.h>
 
 #include <openssl/objects.h>
@@ -29,12 +29,12 @@
 int OpenSSL_config(const char *);
 int OpenSSL_no_config(void);
 
-static pthread_t crypto_init_thread;
+/* _mjo static pthread_t crypto_init_thread; */
 
 static void
 OPENSSL_init_crypto_internal(void)
 {
-	crypto_init_thread = pthread_self();
+     /* _mjo crypto_init_thread = pthread_self(); */
 
 	OPENSSL_cpuid_setup();
 	ERR_load_crypto_strings();
@@ -45,6 +45,7 @@ OPENSSL_init_crypto_internal(void)
 int
 OPENSSL_init_crypto(uint64_t opts, const void *settings)
 {
+#if 0 /* _mjo */
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 	if (pthread_equal(pthread_self(), crypto_init_thread))
@@ -52,6 +53,9 @@ OPENSSL_init_crypto(uint64_t opts, const void *settings)
 
 	if (pthread_once(&once, OPENSSL_init_crypto_internal) != 0)
 		return 0;
+#endif
+
+        OPENSSL_init_crypto_internal(); /* _mjo */
 
 	if ((opts & OPENSSL_INIT_NO_LOAD_CONFIG) &&
 	    (OpenSSL_no_config() == 0))

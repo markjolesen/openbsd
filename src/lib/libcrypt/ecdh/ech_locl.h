@@ -58,7 +58,7 @@
 
 #include <openssl/ecdh.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 struct ecdh_method {
 	const char *name;
@@ -88,6 +88,6 @@ typedef struct ecdh_data_st {
 
 ECDH_DATA *ecdh_check(EC_KEY *);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif /* HEADER_ECH_LOCL_H */

@@ -242,7 +242,7 @@ pkey_dsa_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		nbits = lval;
 		return EVP_PKEY_CTX_set_dsa_paramgen_bits(ctx, nbits);
@@ -255,7 +255,7 @@ pkey_dsa_ctrl_str(EVP_PKEY_CTX *ctx, const char *type, const char *value)
 			goto not_a_number;
 		if ((errno == ERANGE &&
 		    (lval == LONG_MAX || lval == LONG_MIN)) ||
-		    (lval > INT_MAX || lval < INT_MIN))
+		    (lval >= INT_MAX || lval < INT_MIN))
 			goto out_of_range;
 		qbits = lval;
 		return EVP_PKEY_CTX_ctrl(ctx, EVP_PKEY_DSA,

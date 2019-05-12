@@ -57,6 +57,9 @@
 #include <openssl/err.h>
 #include <openssl/asn1t.h>
 
+/* TEMP: _mjo */
+#include <openssl/bn.h>
+
 static const ASN1_TEMPLATE ECDSA_SIG_seq_tt[] = {
 	{
 		.flags = 0,

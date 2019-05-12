@@ -69,13 +69,16 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "ech_locl.h"
 #ifndef OPENSSL_NO_ENGINE
 #include <openssl/engine.h>
 #endif
 #include <openssl/err.h>
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 static const ECDH_METHOD *default_ECDH_method = NULL;
 

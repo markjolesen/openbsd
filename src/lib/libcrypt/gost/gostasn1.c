@@ -7,7 +7,7 @@
  *          Requires OpenSSL 0.9.9 for compilation                    *
  **********************************************************************/
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/asn1t.h>

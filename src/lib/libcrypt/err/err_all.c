@@ -56,10 +56,10 @@
  * [including the GNU Public Licence.]
  */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/asn1.h>
 #include <openssl/bio.h>
@@ -160,6 +160,9 @@ ERR_load_crypto_strings_internal(void)
 void
 ERR_load_crypto_strings(void)
 {
+/*
 	static pthread_once_t loaded = PTHREAD_ONCE_INIT;
 	(void) pthread_once(&loaded, ERR_load_crypto_strings_internal);
+*/
+	ERR_load_crypto_strings_internal();
 }

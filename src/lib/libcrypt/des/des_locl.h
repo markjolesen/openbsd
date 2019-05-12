@@ -66,11 +66,11 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/des.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define ITERATIONS 16
 #define HALF_ITERATIONS 8
@@ -392,6 +392,6 @@ void fcrypt_body(DES_LONG *out,DES_key_schedule *ks,
 #undef DES_UNROLL
 #endif
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

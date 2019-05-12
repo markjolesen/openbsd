@@ -58,6 +58,8 @@
 
 #include <errno.h>
 #include <stdio.h>
+#include <string.h>
+#include <openssl/err.h>
 
 #include <openssl/bio.h>
 #include <openssl/evp.h>

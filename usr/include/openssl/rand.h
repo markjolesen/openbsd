@@ -61,7 +61,7 @@
 #ifndef HEADER_RAND_H
 #define HEADER_RAND_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/ossl_typ.h>
 

@@ -70,6 +70,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+/* TEMP: _mjo */
+void arc4random_buf(void *buf, size_t nbytes);
+void explicit_bzero(void *b, size_t len);
+
 #undef BUFSIZE
 #define BUFSIZE	1024
 #define RAND_DATA 1024

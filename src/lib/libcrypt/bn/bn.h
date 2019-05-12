@@ -128,7 +128,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/ossl_typ.h>
 #include <openssl/crypto.h>

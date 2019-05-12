@@ -91,11 +91,14 @@
 #include <limits.h>
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/err.h>
 
 #include "bn_lcl.h"
+
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
 
 #ifndef OPENSSL_NO_EC2M
 

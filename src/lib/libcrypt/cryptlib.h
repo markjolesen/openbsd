@@ -59,7 +59,7 @@
 #ifndef HEADER_CRYPTLIB_H
 #define HEADER_CRYPTLIB_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef  __cplusplus
 extern "C" {

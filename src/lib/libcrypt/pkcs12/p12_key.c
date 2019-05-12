@@ -63,6 +63,9 @@
 #include <openssl/err.h>
 #include <openssl/pkcs12.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
 /* PKCS12 compatible key/IV generation */
 #ifndef min
 #define min(a,b) ((a) < (b) ? (a) : (b))

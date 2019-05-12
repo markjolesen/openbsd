@@ -4,6 +4,9 @@
 #include <string.h>
 #include <openssl/crypto.h>
 
+/* _mjo temporary */
+extern void explicit_bzero(void *b, size_t len);
+
 void
 OPENSSL_cleanse(void *ptr, size_t len)
 {

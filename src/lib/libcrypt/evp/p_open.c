@@ -59,7 +59,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_RSA
 
@@ -68,6 +68,9 @@
 #include <openssl/objects.h>
 #include <openssl/rsa.h>
 #include <openssl/x509.h>
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 int
 EVP_OpenInit(EVP_CIPHER_CTX *ctx, const EVP_CIPHER *type,

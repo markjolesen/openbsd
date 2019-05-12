@@ -66,6 +66,15 @@
 #include <openssl/buffer.h>
 #include <openssl/objects.h>
 
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
+
+struct iovec
+{
+  void *iov_base;
+  size_t iov_len;
+};
+
 int
 i2d_ASN1_OBJECT(const ASN1_OBJECT *a, unsigned char **pp)
 {
@@ -289,7 +298,7 @@ c2i_ASN1_OBJECT(ASN1_OBJECT **a, const unsigned char **pp, long len)
 	 * - MSB must be clear in the last octet
 	 * - can't have leading 0x80 in subidentifiers, see: X.690 8.19.2
 	 */
-	if (len <= 0 || len > INT_MAX || pp == NULL || (p = *pp) == NULL ||
+	if (len <= 0 || len > (INT_MAX - 1) || pp == NULL || (p = *pp) == NULL ||
 	    p[len - 1] & 0x80) {
 		ASN1error(ASN1_R_INVALID_OBJECT_ENCODING);
 		return (NULL);

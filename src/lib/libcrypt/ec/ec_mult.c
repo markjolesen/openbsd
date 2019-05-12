@@ -67,6 +67,10 @@
 
 #include "ec_lcl.h"
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+void explicit_bzero(void *b, size_t len);
+void freezero(void *ptr, size_t size);
 
 /*
  * This file implements the wNAF-based interleaving multi-exponentation method

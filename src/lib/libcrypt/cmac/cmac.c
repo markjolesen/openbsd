@@ -57,6 +57,9 @@
 
 #include <openssl/cmac.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 struct CMAC_CTX_st {
 	/* Cipher context to use */
 	EVP_CIPHER_CTX cctx;

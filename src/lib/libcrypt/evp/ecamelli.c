@@ -55,7 +55,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_CAMELLIA
 #include <openssl/evp.h>

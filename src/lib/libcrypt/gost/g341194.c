@@ -51,7 +51,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_GOST
 #include <openssl/crypto.h>
@@ -59,6 +59,9 @@
 #include <openssl/gost.h>
 
 #include "gostlocl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 /* Following functions are various bit meshing routines used in
  * GOST R 34.11-94 algorithms */

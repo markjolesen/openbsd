@@ -62,6 +62,9 @@
 #include <openssl/err.h>
 #include <openssl/pkcs12.h>
 
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
 /* PKCS#12 PBE algorithms now in static table */
 
 void

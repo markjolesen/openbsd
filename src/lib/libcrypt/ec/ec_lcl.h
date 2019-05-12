@@ -76,7 +76,7 @@
 #include <openssl/ecdsa.h>
 #include <openssl/bn.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #if defined(__SUNPRO_C)
 # if __SUNPRO_C >= 0x520
@@ -507,4 +507,4 @@ void ec_GFp_nistp_recode_scalar_bits(unsigned char *sign, unsigned char *digit, 
 
 #endif
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

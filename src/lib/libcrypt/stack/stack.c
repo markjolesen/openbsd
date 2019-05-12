@@ -62,6 +62,9 @@
 #include <openssl/objects.h>
 #include <openssl/stack.h>
 
+/* TEMP: _mjo */
+void* reallocarray(void *ptr, size_t nmemb, size_t size);
+
 #undef MIN_NODES
 #define MIN_NODES	4
 

@@ -61,13 +61,13 @@
 
 #include <time.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_BIO
 #include <openssl/bio.h>
 #endif
 #include <openssl/stack.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 
 #include <openssl/ossl_typ.h>
 #ifndef OPENSSL_NO_DEPRECATED

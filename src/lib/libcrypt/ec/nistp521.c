@@ -29,7 +29,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_EC_NISTP_64_GCC_128
 

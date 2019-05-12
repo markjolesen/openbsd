@@ -112,13 +112,16 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bn.h>
 #include <openssl/err.h>
 #include <openssl/rsa.h>
 
 #include "bn_lcl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 static int RSA_eay_public_encrypt(int flen, const unsigned char *from,
     unsigned char *to, RSA *rsa, int padding);

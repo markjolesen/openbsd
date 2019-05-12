@@ -60,7 +60,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_BIO
 #include <openssl/bio.h>

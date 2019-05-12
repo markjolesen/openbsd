@@ -56,7 +56,12 @@
  * [including the GNU Public Licence.]
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+/* TEMP: _mjo */
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
+
 #include <openssl/rc4.h>
 #include "rc4_locl.h"
 

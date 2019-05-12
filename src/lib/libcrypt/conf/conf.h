@@ -59,12 +59,12 @@
 #ifndef  HEADER_CONF_H
 #define HEADER_CONF_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/bio.h>
 #include <openssl/lhash.h>
 #include <openssl/stack.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 
 #include <openssl/ossl_typ.h>
 

@@ -55,9 +55,12 @@
 
 #include <string.h>
 
-#include <openssl/ui_compat.h>
+#include <openssl/uicompat.h>
 
 #include "ui_locl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
 
 int
 UI_UTIL_read_pw_string(char *buf, int length, const char *prompt, int verify)

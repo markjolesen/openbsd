@@ -18,7 +18,7 @@
 #ifndef HEADER_CHACHA_H
 #define HEADER_CHACHA_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if defined(OPENSSL_NO_CHACHA)
 #error ChaCha is disabled.

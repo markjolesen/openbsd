@@ -61,7 +61,7 @@
 #if !defined(HAVE_ATTRIBUTE__BOUNDED__) && !defined(__OpenBSD__)
 #define __bounded__(x, y, z)
 #endif
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 # include <stdio.h>
 #include <stdarg.h>

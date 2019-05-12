@@ -61,7 +61,7 @@
 #ifndef HEADER_MD4_H
 #define HEADER_MD4_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef  __cplusplus
 extern "C" {

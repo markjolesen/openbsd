@@ -19,7 +19,7 @@
 
 #include <stdint.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #if defined(__cplusplus)
 extern "C" {

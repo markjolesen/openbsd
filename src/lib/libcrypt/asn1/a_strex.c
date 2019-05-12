@@ -120,7 +120,7 @@ do_esc_char(unsigned long c, unsigned char flags, char *do_quotes,
 	unsigned char chflgs, chtmp;
 	char tmphex[sizeof(long) * 2 + 3];
 
-	if (c > 0xffffffffL)
+	if (c > (0xffffffffL - 1))
 		return -1;
 	if (c > 0xffff) {
 		snprintf(tmphex, sizeof tmphex, "\\W%08lX", c);

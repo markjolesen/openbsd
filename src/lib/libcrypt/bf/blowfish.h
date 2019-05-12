@@ -59,7 +59,7 @@
 #ifndef HEADER_BLOWFISH_H
 #define HEADER_BLOWFISH_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifdef  __cplusplus
 extern "C" {

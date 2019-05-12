@@ -121,10 +121,10 @@
 #ifndef HEADER_CRYPTO_H
 #define HEADER_CRYPTO_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <openssl/stack.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 #include <openssl/opensslv.h>
 #include <openssl/ossl_typ.h>
 
@@ -471,11 +471,11 @@ int CRYPTO_remove_all_info(void);
  * 1:	called after the actual memory allocation has taken place
  */
 void CRYPTO_dbg_malloc(void *addr, int num, const char *file, int line, int before_p)
-	__attribute__ ((deprecated));
+	/*__attribute__ ((deprecated))*/;
 void CRYPTO_dbg_realloc(void *addr1, void *addr2, int num, const char *file, int line, int before_p)
-	__attribute__ ((deprecated));
+	/*__attribute__ ((deprecated))*/;
 void CRYPTO_dbg_free(void *addr, int before_p)
-	__attribute__ ((deprecated));
+	/*__attribute__ ((deprecated))*/;
 /* Tell the debugging code about options.  By default, the following values
  * apply:
  *
@@ -485,9 +485,9 @@ void CRYPTO_dbg_free(void *addr, int before_p)
  * V_CRYPTO_MDEBUG_ALL (3):     1 + 2
  */
 void CRYPTO_dbg_set_options(long bits)
-	__attribute__ ((deprecated));
+	/*__attribute__ ((deprecated))*/;
 long CRYPTO_dbg_get_options(void)
-	__attribute__ ((deprecated));
+	/*__attribute__ ((deprecated))*/;
 
 
 int CRYPTO_mem_leaks_fp(FILE *);

@@ -63,7 +63,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_ENGINE
 #include <openssl/engine.h>
@@ -72,6 +72,9 @@
 
 #include "bn_lcl.h"
 #include "ec_lcl.h"
+
+/* TEMP: _mjo */
+void freezero(void *ptr, size_t size);
 
 EC_KEY *
 EC_KEY_new(void)

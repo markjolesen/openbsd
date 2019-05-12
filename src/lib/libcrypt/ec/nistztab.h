@@ -25,7 +25,7 @@
  * in order to increase the chances of using a large page but that appears to
  * lead to invalid ELF files being produced. */
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #if defined(__GNUC__)
 __attribute((aligned(4096)))
@@ -9554,4 +9554,4 @@ ecp_nistz256_precomputed
          TOBN(0xd3e21fce, 0xe6a9d694), TOBN(0x82ceb1dd, 0x8a37b527)}
 };
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */

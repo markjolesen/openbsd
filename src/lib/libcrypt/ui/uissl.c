@@ -116,16 +116,21 @@
 
 #include <sys/ioctl.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include <errno.h>
 #include <signal.h>
 #include <stdio.h>
 #include <string.h>
-#include <termios.h>
+/* #include <termios.h> */
 #include <unistd.h>
 
 #include "ui_locl.h"
+
+/* TEMP: _mjo */
+void explicit_bzero(void *b, size_t len);
+
+#if 0
 
 #ifndef NX509_SIG
 #define NX509_SIG 32
@@ -135,8 +140,11 @@
 static struct sigaction savsig[NX509_SIG];
 
 static struct termios tty_orig;
-static FILE *tty_in, *tty_out;
-static int is_a_tty;
+#endif
+
+static FILE *tty_in= stdin, *tty_out= stdout;
+static int is_a_tty= 1;
+
 
 /* Declare static functions */
 static int read_till_nl(FILE *);
@@ -295,6 +303,8 @@ error:
 static int
 open_console(UI *ui)
 {
+	is_a_tty = 1;
+#if 0
 	CRYPTO_w_lock(CRYPTO_LOCK_UI);
 	is_a_tty = 1;
 
@@ -318,38 +328,43 @@ open_console(UI *ui)
 		else
 			return 0;
 	}
-
+#endif
 	return 1;
 }
 
 static int
 noecho_console(UI *ui)
 {
+#if 0
 	struct termios tty_new = tty_orig;
 
 	tty_new.c_lflag &= ~ECHO;
 	if (is_a_tty && (tcsetattr(fileno(tty_in), TCSANOW, &tty_new) == -1))
 		return 0;
+#endif
 	return 1;
 }
 
 static int
 echo_console(UI *ui)
 {
+#if 0
 	if (is_a_tty && (tcsetattr(fileno(tty_in), TCSANOW, &tty_orig) == -1))
 		return 0;
+#endif
 	return 1;
 }
 
 static int
 close_console(UI *ui)
 {
+#if 0
 	if (tty_in != stdin)
 		fclose(tty_in);
 	if (tty_out != stderr)
 		fclose(tty_out);
 	CRYPTO_w_unlock(CRYPTO_LOCK_UI);
-
+#endif
 	return 1;
 }
 
@@ -358,6 +373,7 @@ close_console(UI *ui)
 static void
 pushsig(void)
 {
+#if 0
 	int i;
 	struct sigaction sa;
 
@@ -375,11 +391,13 @@ pushsig(void)
 	}
 
 	signal(SIGWINCH, SIG_DFL);
+#endif
 }
 
 static void
 popsig(void)
 {
+#if 0
 	int i;
 	for (i = 1; i < NX509_SIG; i++) {
 		if (i == SIGUSR1)
@@ -388,6 +406,7 @@ popsig(void)
 			continue;
 		sigaction(i, &savsig[i], NULL);
 	}
+#endif
 }
 
 static void

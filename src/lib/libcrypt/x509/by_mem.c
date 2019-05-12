@@ -68,6 +68,13 @@
 #include <openssl/lhash.h>
 #include <openssl/x509.h>
 
+/* TEMP: _mjo */
+struct iovec
+{
+  void *iov_base;
+  size_t iov_len;
+};
+
 static int by_mem_ctrl(X509_LOOKUP *, int, const char *, long, char **);
 
 static X509_LOOKUP_METHOD x509_mem_lookup = {

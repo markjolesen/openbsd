@@ -17,7 +17,7 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #define DATA_ORDER_IS_BIG_ENDIAN
 

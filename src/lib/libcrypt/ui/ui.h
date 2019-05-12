@@ -59,12 +59,12 @@
 #ifndef HEADER_UI_H
 #define HEADER_UI_H
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #ifndef OPENSSL_NO_DEPRECATED
 #include <openssl/crypto.h>
 #endif
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 #include <openssl/ossl_typ.h>
 
 #ifdef  __cplusplus

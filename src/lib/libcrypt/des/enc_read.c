@@ -59,7 +59,7 @@
 #include <errno.h>
 #include <stdio.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
 #include "des_locl.h"
 

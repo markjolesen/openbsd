@@ -1,0 +1,13 @@
+-+obj\arc4rand.obj 
+-+obj\asprintf.obj 
+-+obj\bzero.obj 
+-+obj\htonl.obj 
+-+obj\htons.obj 
+-+obj\localtm.obj 
+-+obj\memalign.obj 
+-+obj\ntohs.obj 
+-+obj\realloca.obj 
+-+obj\recalloc.obj 
+-+obj\safebcmp.obj 
+-+obj\safemcmp.obj 
+-+obj\strndup.obj

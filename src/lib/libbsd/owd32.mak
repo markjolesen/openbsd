@@ -28,7 +28,8 @@ LIBBSD_OBJS=&
 	$(OBJ)\recalloc.obj &
 	$(OBJ)\safebcmp.obj &
 	$(OBJ)\safemcmp.obj &
-	$(OBJ)\strndup.obj
+	$(OBJ)\strndup.obj &
+	$(OBJ)\strnlen.obj
 
 all : $(LIB)\bsd.lib
 	

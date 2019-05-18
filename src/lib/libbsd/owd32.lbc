@@ -11,3 +11,4 @@
 -+obj\safebcmp.obj 
 -+obj\safemcmp.obj 
 -+obj\strndup.obj
+-+obj\strnlen.obj

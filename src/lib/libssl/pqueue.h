@@ -61,7 +61,7 @@
 #ifndef HEADER_PQUEUE_H
 #define HEADER_PQUEUE_H
 
-__BEGIN_HIDDEN_DECLS 
+/* __BEGIN_HIDDEN_DECLS */
 
 typedef struct _pqueue *pqueue;
 
@@ -88,6 +88,6 @@ pitem *pqueue_next(piterator *iter);
 
 int    pqueue_size(pqueue pq);
 
-__END_HIDDEN_DECLS 
+/* __END_HIDDEN_DECLS */
 
 #endif /* ! HEADER_PQUEUE_H */

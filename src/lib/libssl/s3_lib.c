@@ -152,13 +152,13 @@
 #include <stdio.h>
 
 #include <openssl/bn.h>
-#include <openssl/curve25519.h>
+#include <openssl/crv25519.h>
 #include <openssl/dh.h>
 #include <openssl/md5.h>
 #include <openssl/objects.h>
 
 #include "ssl_locl.h"
-#include "bytestring.h"
+#include "bytestr.h"
 
 #define SSL3_NUM_CIPHERS	(sizeof(ssl3_ciphers) / sizeof(SSL_CIPHER))
 

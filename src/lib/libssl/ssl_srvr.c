@@ -154,7 +154,7 @@
 
 #include <openssl/bn.h>
 #include <openssl/buffer.h>
-#include <openssl/curve25519.h>
+#include <openssl/crv25519.h>
 #include <openssl/evp.h>
 #include <openssl/dh.h>
 #ifndef OPENSSL_NO_GOST
@@ -165,9 +165,9 @@
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 
-#include "bytestring.h"
-#include "ssl_sigalgs.h"
-#include "ssl_tlsext.h"
+#include "bytestr.h"
+#include "sslsigal.h"
+#include "ssltlsex.h"
 
 int
 ssl3_accept(SSL *s)

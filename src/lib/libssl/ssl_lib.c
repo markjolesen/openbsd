@@ -155,8 +155,8 @@
 #include <openssl/engine.h>
 #endif
 
-#include "bytestring.h"
-#include "ssl_sigalgs.h"
+#include "bytestr.h"
+#include "sslsigal.h"
 
 const char *SSL_version_str = OPENSSL_VERSION_TEXT;
 

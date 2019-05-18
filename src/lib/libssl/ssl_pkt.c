@@ -117,7 +117,7 @@
 #include <openssl/buffer.h>
 #include <openssl/evp.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 static int do_ssl3_write(SSL *s, int type, const unsigned char *buf,
     unsigned int len, int create_empty_fragment);

@@ -151,7 +151,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
 #include <openssl/dsa.h>
@@ -160,14 +160,14 @@
 #include <openssl/ssl.h>
 #include <openssl/stack.h>
 
-#include "bytestring.h"
-#include "ssl_sigalgs.h"
-#include "tls13_internal.h"
+#include "bytestr.h"
+#include "sslsigal.h"
+#include "tlsintrn.h"
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define CTASSERT(x)	extern char  _ctassert[(x) ? 1 : -1 ]   \
-			    __attribute__((__unused__))
+			    /* __attribute__((__unused__)) */
 
 #define l2n(l,c)	(*((c)++)=(unsigned char)(((l)>>24)&0xff), \
 			 *((c)++)=(unsigned char)(((l)>>16)&0xff), \
@@ -1368,6 +1368,6 @@ int srtp_find_profile_by_num(unsigned profile_num,
 
 #endif /* OPENSSL_NO_SRTP */
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 #endif

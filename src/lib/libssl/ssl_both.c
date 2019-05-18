@@ -125,7 +125,7 @@
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 /*
  * Send s->internal->init_buf in records of type 'type' (SSL3_RT_HANDSHAKE or

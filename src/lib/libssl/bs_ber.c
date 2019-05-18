@@ -16,9 +16,9 @@
 
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 /*
  * kMaxDepth is a just a sanity limit. The code should be such that the length

@@ -22,7 +22,7 @@
 
 #include "ssl_locl.h"
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 #define SSLASN1_TAG	(CBS_ASN1_CONSTRUCTED | CBS_ASN1_CONTEXT_SPECIFIC)
 #define SSLASN1_TIME_TAG		(SSLASN1_TAG | 1)

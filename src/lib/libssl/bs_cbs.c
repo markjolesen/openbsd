@@ -17,11 +17,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/buffer.h>
 #include <openssl/crypto.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 void
 CBS_init(CBS *cbs, const uint8_t *data, size_t len)

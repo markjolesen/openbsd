@@ -125,7 +125,7 @@
 #include <openssl/x509.h>
 
 #include "pqueue.h"
-#include "bytestring.h"
+#include "bytestr.h"
 
 #define RSMBLY_BITMASK_SIZE(msg_len) (((msg_len) + 7) / 8)
 

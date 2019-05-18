@@ -17,19 +17,19 @@
 
 /* OpenSSL style init */
 
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdio.h>
 
 #include <openssl/objects.h>
 
 #include "ssl_locl.h"
 
-static pthread_t ssl_init_thread;
+/* static pthread_t ssl_init_thread; */
 
 static void
 OPENSSL_init_ssl_internal(void)
 {
-	ssl_init_thread = pthread_self();
+/*	ssl_init_thread = pthread_self(); */
 	SSL_load_error_strings();
 	SSL_library_init();
 }
@@ -37,15 +37,21 @@ OPENSSL_init_ssl_internal(void)
 int
 OPENSSL_init_ssl(uint64_t opts, const void *settings)
 {
+#if 0
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 	if (pthread_equal(pthread_self(), ssl_init_thread))
 		return 1; /* don't recurse */
+#endif
 
 	OPENSSL_init_crypto(opts, settings);
 
+#if 0
 	if (pthread_once(&once, OPENSSL_init_ssl_internal) != 0)
 		return 0;
+#endif
+
+        OPENSSL_init_ssl_internal();
 
 	return 1;
 }

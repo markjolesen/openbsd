@@ -118,9 +118,9 @@
 
 #include "ssl_locl.h"
 
-#include "bytestring.h"
-#include "ssl_sigalgs.h"
-#include "ssl_tlsext.h"
+#include "bytestr.h"
+#include "sslsigal.h"
+#include "ssltlsex.h"
 
 static int tls_decrypt_ticket(SSL *s, CBS *session_id, CBS *ticket,
     SSL_SESSION **psess);

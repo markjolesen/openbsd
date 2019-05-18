@@ -125,7 +125,7 @@
 #include <openssl/md5.h>
 #include <openssl/objects.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 int
 dtls1_get_hello_verify(SSL *s)

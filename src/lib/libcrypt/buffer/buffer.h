@@ -93,9 +93,9 @@ void	BUF_reverse(unsigned char *out, const unsigned char *in, size_t siz);
 
 /* safe string functions */
 size_t BUF_strlcpy(char *dst, const char *src, size_t siz)
-	__attribute__ ((__bounded__(__string__,1,3)));
+	/* __attribute__ ((__bounded__(__string__,1,3))) */;
 size_t BUF_strlcat(char *dst, const char *src, size_t siz)
-	__attribute__ ((__bounded__(__string__,1,3)));
+	/* __attribute__ ((__bounded__(__string__,1,3))) */;
 #endif
 
 /* BEGIN ERROR CODES */

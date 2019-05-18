@@ -124,7 +124,7 @@
 #include <openssl/bn.h>
 #include <openssl/dh.h>
 #include <openssl/objects.h>
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 #include <openssl/pem.h>
 #include <openssl/x509v3.h>
 

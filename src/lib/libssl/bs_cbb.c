@@ -17,9 +17,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <openssl/opensslconf.h>
+#include <openssl/sslcfg.h>
 
-#include "bytestring.h"
+#include "bytestr.h"
 
 #define CBB_INITIAL_SIZE 64
 

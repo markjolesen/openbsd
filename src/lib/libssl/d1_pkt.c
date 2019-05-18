@@ -113,7 +113,10 @@
  * [including the GNU Public Licence.]
  */
 
-#include <machine/endian.h>
+/* #include <machine/endian.h> */
+
+#define LITTLE_ENDIAN 1234
+#define BYTE_ORDER LITTLE_ENDIAN
 
 #include <errno.h>
 #include <stdio.h>
@@ -124,7 +127,7 @@
 #include <openssl/evp.h>
 
 #include "pqueue.h"
-#include "bytestring.h"
+#include "bytestr.h"
 
 static int	do_dtls1_write(SSL *s, int type, const unsigned char *buf,
 		    unsigned int len);

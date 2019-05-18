@@ -156,7 +156,7 @@
 
 #include <openssl/bn.h>
 #include <openssl/buffer.h>
-#include <openssl/curve25519.h>
+#include <openssl/crv25519.h>
 #include <openssl/dh.h>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
@@ -169,9 +169,9 @@
 #include <openssl/gost.h>
 #endif
 
-#include "bytestring.h"
-#include "ssl_sigalgs.h"
-#include "ssl_tlsext.h"
+#include "bytestr.h"
+#include "sslsigal.h"
+#include "ssltlsex.h"
 
 static int ca_dn_cmp(const X509_NAME * const *a, const X509_NAME * const *b);
 

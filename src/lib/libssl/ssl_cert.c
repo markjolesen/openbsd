@@ -115,8 +115,7 @@
  */
 
 #include <sys/types.h>
-
-#include <dirent.h>
+#include <direct.h>
 #include <stdio.h>
 #include <unistd.h>
 
@@ -129,6 +128,8 @@
 #include <openssl/x509v3.h>
 
 #include "ssl_locl.h"
+
+int asprintf(char **str, const char *fmt, ...);
 
 int
 SSL_get_ex_data_X509_STORE_CTX_idx(void)

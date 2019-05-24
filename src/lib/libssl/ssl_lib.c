@@ -158,6 +158,9 @@
 #include "bytestr.h"
 #include "sslsigal.h"
 
+void arc4random_buf(void *buf, size_t n);
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 const char *SSL_version_str = OPENSSL_VERSION_TEXT;
 
 int

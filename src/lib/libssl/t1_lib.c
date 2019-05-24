@@ -122,6 +122,11 @@
 #include "sslsigal.h"
 #include "ssltlsex.h"
 
+void freezero(void *ptr, size_t sz);
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+char* strndup(const char *str, size_t maxlen);
+char * strsep(char **stringp, const char *delim);
+
 static int tls_decrypt_ticket(SSL *s, CBS *session_id, CBS *ticket,
     SSL_SESSION **psess);
 

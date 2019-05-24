@@ -143,6 +143,12 @@
 
 #include "ssl_locl.h"
 
+void arc4random_buf(void *buf, size_t n);
+void freezero(void *ptr, size_t sz);
+void explicit_bzero(void *buf, size_t len);
+char* strndup(const char *str, size_t maxlen);
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 static void SSL_SESSION_list_remove(SSL_CTX *ctx, SSL_SESSION *s);
 static void SSL_SESSION_list_add(SSL_CTX *ctx, SSL_SESSION *s);
 static int remove_session_lock(SSL_CTX *ctx, SSL_SESSION *c, int lck);

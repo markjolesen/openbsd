@@ -142,6 +142,7 @@
 
 #include <stdio.h>
 
+#include <openssl/ssl.h>
 #include <openssl/objects.h>
 
 #ifndef OPENSSL_NO_ENGINE
@@ -149,6 +150,9 @@
 #endif
 
 #include "ssl_locl.h"
+
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+int asprintf(char **str, const char *fmt, ...);
 
 #define CIPHER_ADD	1
 #define CIPHER_KILL	2

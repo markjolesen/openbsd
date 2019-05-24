@@ -173,6 +173,11 @@
 #include "sslsigal.h"
 #include "ssltlsex.h"
 
+void freezero(void *ptr, size_t sz);
+void explicit_bzero(void *buf, size_t len);
+void arc4random_buf(void *buf, size_t n);
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 static int ca_dn_cmp(const X509_NAME * const *a, const X509_NAME * const *b);
 
 int

@@ -1,6 +1,7 @@
 -+obj\arc4rand.obj 
 -+obj\asprintf.obj 
 -+obj\bzero.obj 
+-+obj\freezero.obj 
 -+obj\htonl.obj 
 -+obj\htons.obj 
 -+obj\localtm.obj 
@@ -12,3 +13,4 @@
 -+obj\safemcmp.obj 
 -+obj\strndup.obj
 -+obj\strnlen.obj
+-+obj\strsep.obj

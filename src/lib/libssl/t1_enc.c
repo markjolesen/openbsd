@@ -144,6 +144,11 @@
 #include <openssl/hmac.h>
 #include <openssl/md5.h>
 
+void freezero(void *ptr, size_t sz);
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+void explicit_bzero(void *buf, size_t len);
+void arc4random_buf(void *buf, size_t n);
+
 int tls1_PRF(SSL *s, const unsigned char *secret, size_t secret_len,
     const void *seed1, size_t seed1_len, const void *seed2, size_t seed2_len,
     const void *seed3, size_t seed3_len, const void *seed4, size_t seed4_len,

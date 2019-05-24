@@ -19,6 +19,7 @@ LIBBSD_OBJS=&
 	$(OBJ)\arc4rand.obj &
 	$(OBJ)\asprintf.obj &
 	$(OBJ)\bzero.obj &
+	$(OBJ)\freezero.obj &
 	$(OBJ)\htonl.obj &
 	$(OBJ)\htons.obj &
 	$(OBJ)\localtm.obj &
@@ -29,7 +30,8 @@ LIBBSD_OBJS=&
 	$(OBJ)\safebcmp.obj &
 	$(OBJ)\safemcmp.obj &
 	$(OBJ)\strndup.obj &
-	$(OBJ)\strnlen.obj
+	$(OBJ)\strnlen.obj &
+	$(OBJ)\strsep.obj
 
 all : $(LIB)\bsd.lib
 	

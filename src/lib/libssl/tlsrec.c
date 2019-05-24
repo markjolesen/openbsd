@@ -22,6 +22,8 @@
 #include "tlsintrn.h"
 #include "tlsrec.h"
 
+void freezero(void *ptr, size_t sz);
+
 struct tls13_record {
 	uint16_t version;
 	uint8_t content_type;

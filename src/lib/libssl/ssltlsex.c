@@ -25,6 +25,10 @@
 #include "sslsigal.h"
 #include "ssltlsex.h"
 
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+void freezero(void *ptr, size_t sz);
+char* strndup(const char *str, size_t maxlen);
+
 /*
  * Supported Application-Layer Protocol Negotiation - RFC 7301
  */

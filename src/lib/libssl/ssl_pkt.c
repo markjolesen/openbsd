@@ -119,6 +119,8 @@
 
 #include "bytestr.h"
 
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 static int do_ssl3_write(SSL *s, int type, const unsigned char *buf,
     unsigned int len, int create_empty_fragment);
 static int ssl3_get_record(SSL *s);

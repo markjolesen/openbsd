@@ -22,6 +22,8 @@
 #include "tlsintrn.h"
 #include "tlsrec.h"
 
+void freezero(void *ptr, size_t sz);
+
 struct tls13_record_layer {
 	int change_cipher_spec_seen;
 	int handshake_completed;

@@ -22,6 +22,9 @@
 #include "bytestr.h"
 #include "tlsintrn.h"
 
+void freezero(void *ptr, size_t sz);
+void explicit_bzero(void *buf, size_t len);
+
 void
 tls13_secrets_destroy(struct tls13_secrets *secrets)
 {

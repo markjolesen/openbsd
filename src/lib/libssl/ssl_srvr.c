@@ -169,6 +169,10 @@
 #include "sslsigal.h"
 #include "ssltlsex.h"
 
+void freezero(void *ptr, size_t sz);
+void arc4random_buf(void *buf, size_t n);
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 int
 ssl3_accept(SSL *s)
 {

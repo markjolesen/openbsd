@@ -249,7 +249,9 @@ ssl3_cbc_copy_mac(unsigned char* out, const SSL3_RECORD *rec,
 	j = 0;
 	for (i = 0; i < md_size; i++) {
 		/* in case cache-line is 32 bytes, touch second line */
+#if 0
 		((volatile unsigned char *)rotated_mac)[rotate_offset^32];
+#endif
 		out[j++] = rotated_mac[rotate_offset++];
 		rotate_offset &= constant_time_lt(rotate_offset, md_size);
 	}

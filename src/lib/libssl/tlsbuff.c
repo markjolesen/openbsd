@@ -20,6 +20,9 @@
 #include "bytestr.h"
 #include "tlsintrn.h"
 
+void freezero(void *ptr, size_t sz);
+void* recallocarray(void *ptr, size_t oldnmemb, size_t newnmemb, size_t size);
+
 struct tls13_buffer {
 	size_t capacity;
 	uint8_t *data;

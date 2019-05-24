@@ -60,7 +60,11 @@
 #ifndef HEADER_DTLS1_H
 #define HEADER_DTLS1_H
 
-#include <time.h>
+#if defined(__WATCOMC__)
+#include <sys/wtime.h>
+#else
+#include <sys/time.h>
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -154,7 +158,6 @@ typedef struct dtls1_state_st {
 
 	/* Indicates when the last handshake msg or heartbeat sent will timeout */
 	struct timeval next_timeout;
-
 	/* Timeout duration */
 	unsigned short timeout_duration;
 

@@ -24,6 +24,8 @@
 
 #include "bytestr.h"
 
+void freezero(void *ptr, size_t sz);
+
 #define SSLASN1_TAG	(CBS_ASN1_CONSTRUCTED | CBS_ASN1_CONTEXT_SPECIFIC)
 #define SSLASN1_TIME_TAG		(SSLASN1_TAG | 1)
 #define SSLASN1_TIMEOUT_TAG		(SSLASN1_TAG | 2)
@@ -95,7 +97,7 @@ SSL_SESSION_encode(SSL_SESSION *s, unsigned char **out, size_t *out_len,
 
 	/* Time [1]. */
 	if (s->time != 0) {
-		if (s->time < 0)
+		if ((long)s->time < 0)
 			goto err;
 		if (!CBB_add_asn1(&session, &time, SSLASN1_TIME_TAG))
 			goto err;
@@ -298,7 +300,7 @@ d2i_SSL_SESSION(SSL_SESSION **a, const unsigned char **pp, long length)
 	if (!CBS_write_bytes(&session_id, s->session_id, sizeof(s->session_id),
 	    &data_len))
 		goto err;
-	if (data_len > UINT_MAX)
+	if (data_len > (UINT_MAX-1))
 		goto err;
 	s->session_id_length = (unsigned int)data_len;
 
@@ -357,7 +359,7 @@ d2i_SSL_SESSION(SSL_SESSION **a, const unsigned char **pp, long length)
 		if (!CBS_write_bytes(&session_id, (uint8_t *)&s->sid_ctx,
 		    sizeof(s->sid_ctx), &data_len))
 			goto err;
-		if (data_len > UINT_MAX)
+		if (data_len > (UINT_MAX-1))
 			goto err;
 		s->sid_ctx_length = (unsigned int)data_len;
 	}

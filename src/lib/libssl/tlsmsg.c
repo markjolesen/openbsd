@@ -19,6 +19,8 @@
 #include "ssl_locl.h"
 #include "tlsintrn.h"
 
+void freezero(void *ptr, size_t sz);
+
 #define TLS13_HANDSHAKE_MSG_HEADER_LEN	4
 #define TLS13_HANDSHAKE_MSG_INITIAL_LEN	256
 #define TLS13_HANDSHAKE_MSG_MAX_LEN	(256 * 1024)

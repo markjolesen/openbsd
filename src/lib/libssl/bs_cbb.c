@@ -21,6 +21,9 @@
 
 #include "bytestr.h"
 
+void freezero(void *ptr, size_t sz);
+void* recallocarray(void *ptr, size_t oldnmemb, size_t newnmemb, size_t size);
+
 #define CBB_INITIAL_SIZE 64
 
 static int
@@ -185,6 +188,7 @@ int
 CBB_flush(CBB *cbb)
 {
 	size_t child_start, i, len;
+	size_t extra_bytes;
 
 	if (cbb->base == NULL)
 		return 0;
@@ -244,7 +248,7 @@ CBB_flush(CBB *cbb)
 			 * We need to move the contents along in order to make
 			 * space for the long form length octets.
 			 */
-			size_t extra_bytes = len_len - 1;
+			/*size_t*/ extra_bytes = len_len - 1;
 			if (!cbb_buffer_add(cbb->base, NULL, extra_bytes))
 				return 0;
 
@@ -408,8 +412,10 @@ CBB_add_u24(CBB *cbb, size_t value)
 int
 CBB_add_u32(CBB *cbb, size_t value)
 {
+#if 0
 	if (value > 0xffffffffUL)
 		return 0;
+#endif
 
 	return cbb_add_u(cbb, (uint32_t)value, 4);
 }

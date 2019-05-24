@@ -25,6 +25,9 @@
 #include "tlshand.h"
 #include "tlsintrn.h"
 
+void freezero(void *ptr, size_t sz);
+void arc4random_buf(void *buf, size_t n);
+
 int
 tls13_connect(struct tls13_ctx *ctx)
 {

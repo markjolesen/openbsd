@@ -121,6 +121,8 @@
 #include <openssl/hmac.h>
 #include <openssl/md5.h>
 
+void arc4random_buf(void *buf, size_t n);
+
 /* dtls1_enc encrypts/decrypts the record in |s->wrec| / |s->rrec|, respectively.
  *
  * Returns:

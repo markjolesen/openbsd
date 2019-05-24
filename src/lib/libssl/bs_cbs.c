@@ -23,6 +23,9 @@
 
 #include "bytestr.h"
 
+char* strndup(const char *str, size_t maxlen);
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+
 void
 CBS_init(CBS *cbs, const uint8_t *data, size_t len)
 {

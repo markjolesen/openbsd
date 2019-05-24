@@ -70,6 +70,8 @@
 #include "pqueue.h"
 #include "ssl_locl.h"
 
+void freezero(void *ptr, size_t sz);
+
 static int dtls1_listen(SSL *s, struct sockaddr *client);
 
 SSL3_ENC_METHOD DTLSv1_enc_data = {
@@ -313,7 +315,7 @@ dtls1_get_timeout(SSL *s, struct timeval* timeleft)
 
 	/* If no timeout is set, just return NULL */
 	if (s->d1->next_timeout.tv_sec == 0 && s->d1->next_timeout.tv_usec == 0) {
-		return NULL;
+		return 0;
 	}
 
 	/* Get current time */
@@ -344,7 +346,6 @@ dtls1_get_timeout(SSL *s, struct timeval* timeleft)
 		memset(timeleft, 0, sizeof(struct timeval));
 	}
 
-
 	return timeleft;
 }
 
@@ -354,7 +355,7 @@ dtls1_is_timer_expired(SSL *s)
 	struct timeval timeleft;
 
 	/* Get time left until timeout, return false if no timer running */
-	if (dtls1_get_timeout(s, &timeleft) == NULL) {
+	if (dtls1_get_timeout(s, &timeleft) == 0) {
 		return 0;
 	}
 
@@ -382,7 +383,6 @@ dtls1_stop_timer(SSL *s)
 	/* Reset everything */
 	memset(&(D1I(s)->timeout), 0, sizeof(struct dtls1_timeout_st));
 	memset(&(s->d1->next_timeout), 0, sizeof(struct timeval));
-	s->d1->timeout_duration = 1;
 	BIO_ctrl(SSL_get_rbio(s), BIO_CTRL_DGRAM_SET_NEXT_TIMEOUT, 0,
 	    &(s->d1->next_timeout));
 	/* Clear retransmission buffer */

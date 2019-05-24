@@ -160,6 +160,9 @@
 #include "ssl_locl.h"
 #include "bytestr.h"
 
+char* strndup(const char *str, size_t maxlen);
+void freezero(void *ptr, size_t sz);
+
 #define SSL3_NUM_CIPHERS	(sizeof(ssl3_ciphers) / sizeof(SSL_CIPHER))
 
 /*

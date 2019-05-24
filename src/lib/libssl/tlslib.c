@@ -23,6 +23,8 @@
 #include "ssl_locl.h"
 #include "tlsintrn.h"
 
+void freezero(void *ptr, size_t sz);
+
 const EVP_AEAD *
 tls13_cipher_aead(const SSL_CIPHER *cipher)
 {
@@ -199,7 +201,7 @@ tls13_legacy_wire_write_cb(const void *buf, size_t n, void *arg)
 int
 tls13_legacy_return_code(SSL *ssl, ssize_t ret)
 {
-	if (ret > INT_MAX) {
+	if (ret > (INT_MAX-1)) {
 		SSLerror(ssl, ERR_R_INTERNAL_ERROR);
 		return -1;
 	}

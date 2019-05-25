@@ -19,14 +19,14 @@
 #ifndef HEADER_TLS_INTERNAL_H
 #define HEADER_TLS_INTERNAL_H
 
-#include <pthread.h>
+/* #include <pthread.h> */
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
 #include <openssl/ssl.h>
 
-__BEGIN_HIDDEN_DECLS
+/* __BEGIN_HIDDEN_DECLS */
 
 #define TLS_CIPHERS_DEFAULT	"TLSv1.2+AEAD+ECDHE:TLSv1.2+AEAD+DHE"
 #define TLS_CIPHERS_COMPAT	"HIGH:!aNULL"
@@ -77,7 +77,7 @@ struct tls_ticket_key {
 struct tls_config {
 	struct tls_error error;
 
-	pthread_mutex_t mutex;
+	/* pthread_mutex_t mutex; */
 	int refcount;
 
 	char *alpn;
@@ -247,26 +247,26 @@ int tls_set_cbs(struct tls *ctx,
 
 void tls_error_clear(struct tls_error *error);
 int tls_error_set(struct tls_error *error, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_error_setx(struct tls_error *error, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_config_set_error(struct tls_config *cfg, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_config_set_errorx(struct tls_config *cfg, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_set_error(struct tls *ctx, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_set_errorx(struct tls *ctx, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 int tls_set_ssl_errorx(struct tls *ctx, const char *fmt, ...)
-    __attribute__((__format__ (printf, 2, 3)))
-    __attribute__((__nonnull__ (2)));
+    /* __attribute__((__format__ (printf, 2, 3)))
+    __attribute__((__nonnull__ (2))) */;
 
 int tls_ssl_error(struct tls *ctx, SSL *ssl_conn, int ssl_ret,
     const char *prefix);
@@ -285,7 +285,7 @@ int tls_cert_pubkey_hash(X509 *_cert, char **_hash);
 
 int tls_password_cb(char *_buf, int _size, int _rwflag, void *_u);
 
-__END_HIDDEN_DECLS
+/* __END_HIDDEN_DECLS */
 
 /* XXX this function is not fully hidden so relayd can use it */
 void tls_config_skip_private_key_check(struct tls_config *config);

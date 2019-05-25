@@ -22,7 +22,7 @@
 #include <openssl/bio.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
 
 static int bio_cb_write(BIO *bio, const char *buf, int num);
 static int bio_cb_read(BIO *bio, char *buf, int size);

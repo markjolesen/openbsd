@@ -31,7 +31,12 @@
 #include <openssl/x509.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
+
+void freezero(void *ptr, size_t sz);
+int ftruncate(int fd, off_t len);
+ssize_t pread(int d, void *buf, size_t nbytes, off_t offset);
+ssize_t pwrite(int d, const void *buf, size_t nbytes, off_t offset);
 
 struct tls *
 tls_client(void)
@@ -179,7 +184,7 @@ tls_client_read_session(struct tls *ctx)
 		tls_set_error(ctx, "failed to stat session file");
 		goto err;
 	}
-	if (sb.st_size < 0 || sb.st_size > INT_MAX) {
+	if ((long)sb.st_size < 0 || sb.st_size > (INT_MAX-1)) {
 		tls_set_errorx(ctx, "invalid session file size");
 		goto err;
 	}

@@ -21,7 +21,10 @@
 #include <openssl/x509.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
+
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+time_t timegm(struct tm *tmp);
 
 int ASN1_time_tm_clamp_notafter(struct tm *tm);
 

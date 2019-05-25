@@ -24,7 +24,10 @@
 #include <openssl/ssl.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
+
+int timingsafe_memcmp(const void *b1, const void *b2, size_t len);
+void arc4random_buf(void *buf, size_t n);
 
 struct tls *
 tls_server(void)

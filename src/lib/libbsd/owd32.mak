@@ -20,11 +20,14 @@ LIBBSD_OBJS=&
 	$(OBJ)\asprintf.obj &
 	$(OBJ)\bzero.obj &
 	$(OBJ)\freezero.obj &
+	$(OBJ)\ftrunc.obj
 	$(OBJ)\htonl.obj &
 	$(OBJ)\htons.obj &
 	$(OBJ)\localtm.obj &
 	$(OBJ)\memalign.obj &
 	$(OBJ)\ntohs.obj &
+	$(OBJ)\pread.obj &
+	$(OBJ)\pwrite.obj &
 	$(OBJ)\realloca.obj &
 	$(OBJ)\recalloc.obj &
 	$(OBJ)\safebcmp.obj &

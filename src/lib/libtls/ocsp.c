@@ -25,7 +25,9 @@
 #include <openssl/x509.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
+
+time_t timegm(struct tm *tmp);
 
 #define MAXAGE_SEC (14*24*60*60)
 #define JITTER_SEC (60)

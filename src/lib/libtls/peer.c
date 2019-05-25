@@ -21,7 +21,7 @@
 #include <openssl/x509.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
 
 const char *
 tls_peer_cert_hash(struct tls *ctx)

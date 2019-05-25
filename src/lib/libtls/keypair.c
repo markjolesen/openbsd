@@ -21,7 +21,9 @@
 
 #include <tls.h>
 
-#include "tls_internal.h"
+#include "internal.h"
+
+void freezero(void *ptr, size_t sz);
 
 struct tls_keypair *
 tls_keypair_new(void)

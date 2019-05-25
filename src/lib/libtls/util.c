@@ -24,7 +24,10 @@
 #include <fcntl.h>
 
 #include "tls.h"
-#include "tls_internal.h"
+#include "internal.h"
+
+int asprintf(char **str, const char *fmt, ...);
+void freezero(void *ptr, size_t sz);
 
 static void *
 memdup(const void *in, size_t len)
@@ -195,7 +198,7 @@ tls_load_file(const char *name, size_t *len, char *password)
 		goto err;
 	if (!PEM_write_bio_PrivateKey(bio, key, NULL, NULL, 0, NULL, NULL))
 		goto err;
-	if ((size = BIO_get_mem_data(bio, &data)) <= 0)
+	if (((long)size = BIO_get_mem_data(bio, &data)) <= 0)
 		goto err;
 	if ((buf = malloc(size)) == NULL)
 		goto err;

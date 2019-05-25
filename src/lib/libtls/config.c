@@ -20,14 +20,22 @@
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdlib.h>
 #include <unistd.h>
 
 #include <tls.h>
 
-#include "tls_internal.h"
+#include "internal.h"
 
+uint32_t arc4random(void);
+void arc4random_buf(void *buf, size_t n);
+void freezero(void *ptr, size_t sz);
+char * strsep(char **stringp, const char *delim);
+void* reallocarray(void *optr, size_t nmemb, size_t size);
+uint32_t htonl(uint32_t x);
+
+/* FIXME: _mjo */
 static const char default_ca_file[] = "/etc/ssl/cert.pem";
 
 const char *
@@ -93,10 +101,10 @@ tls_config_new_internal(void)
 
 	if ((config = calloc(1, sizeof(*config))) == NULL)
 		return (NULL);
-
+#if 0
 	if (pthread_mutex_init(&config->mutex, NULL) != 0)
 		goto err;
-
+#endif
 	config->refcount = 1;
 	config->session_fd = -1;
 
@@ -158,9 +166,9 @@ tls_config_free(struct tls_config *config)
 	if (config == NULL)
 		return;
 
-	pthread_mutex_lock(&config->mutex);
+	/* pthread_mutex_lock(&config->mutex); */
 	refcount = --config->refcount;
-	pthread_mutex_unlock(&config->mutex);
+	/* pthread_mutex_unlock(&config->mutex); */
 
 	if (refcount > 0)
 		return;
@@ -713,12 +721,13 @@ tls_config_set_session_fd(struct tls_config *config, int session_fd)
 		    "session file is not a regular file");
 		return (-1);
 	}
-
+#if 0
 	if (sb.st_uid != getuid()) {
 		tls_config_set_errorx(config, "session file has incorrect "
 		    "owner (uid %i != %i)", sb.st_uid, getuid());
 		return (-1);
 	}
+#endif
 	mugo = sb.st_mode & (S_IRWXU|S_IRWXG|S_IRWXO);
 	if (mugo != (S_IRUSR|S_IWUSR)) {
 		tls_config_set_errorx(config, "session file has incorrect "

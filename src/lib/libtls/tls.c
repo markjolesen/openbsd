@@ -19,7 +19,7 @@
 
 #include <errno.h>
 #include <limits.h>
-#include <pthread.h>
+/* #include <pthread.h> */
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -27,12 +27,16 @@
 #include <openssl/err.h>
 #include <openssl/evp.h>
 #include <openssl/pem.h>
-#include <openssl/safestack.h>
+#include <openssl/safestk.h>
 #include <openssl/ssl.h>
 #include <openssl/x509.h>
 
 #include <tls.h>
-#include "tls_internal.h"
+#include "internal.h"
+
+int asprintf(char **str, const char *fmt, ...);
+int vasprintf(char **str, const char *fmt, va_list ap);
+
 
 static struct tls_config *tls_config_default;
 
@@ -57,11 +61,13 @@ tls_do_init(void)
 int
 tls_init(void)
 {
+#if 0
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 	if (pthread_once(&once, tls_do_init) != 0)
 		return -1;
-
+#endif
+	tls_do_init();
 	return tls_init_rv;
 }
 
@@ -256,9 +262,9 @@ tls_configure(struct tls *ctx, struct tls_config *config)
 	if (config == NULL)
 		config = tls_config_default;
 
-	pthread_mutex_lock(&config->mutex);
+	/* pthread_mutex_lock(&config->mutex); */
 	config->refcount++;
-	pthread_mutex_unlock(&config->mutex);
+	/* pthread_mutex_unlock(&config->mutex); */
 
 	tls_config_free(ctx->config);
 
@@ -795,7 +801,7 @@ tls_close(struct tls *ctx)
 	}
 
 	if (ctx->socket != -1) {
-		if (shutdown(ctx->socket, SHUT_RDWR) != 0) {
+		if (shutdown(ctx->socket, 2 /*SHUT_RDWR*/) != 0) {
 			if (rv == 0 &&
 			    errno != ENOTCONN && errno != ECONNRESET) {
 				tls_set_error(ctx, "shutdown");

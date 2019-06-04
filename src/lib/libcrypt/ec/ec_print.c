@@ -57,6 +57,7 @@
 #include "ec_lcl.h"
 
 /* TEMP: _mjo */
+void* reallocarray(void *optr, size_t nmemb, size_t size);
 void* recallocarray(void *ptr, size_t oldnmemb, size_t nmemb, size_t size);
 
 BIGNUM *

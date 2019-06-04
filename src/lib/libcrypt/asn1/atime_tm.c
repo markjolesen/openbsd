@@ -28,6 +28,7 @@
 /* TEMP: _mjo */
 int asprintf(char** ret, const char* format, ...);
 time_t timegm(struct tm *tm);
+struct tm* gmtime_r(const time_t *clock, struct tm *result);
 
 #define RFC5280 0
 #define GENTIME_LENGTH 15

@@ -1,14 +1,17 @@
 -+obj\arc4rand.obj 
 -+obj\asprintf.obj 
 -+obj\bzero.obj 
+-+obj\entropy.obj 
 -+obj\freezero.obj 
 -+obj\ftrunc.obj
+-+obj\gmtime_r.obj
 -+obj\htonl.obj 
 -+obj\htons.obj 
 -+obj\localtm.obj 
 -+obj\memalign.obj 
 -+obj\ntohs.obj 
 -+obj\pread.obj
+-+obj\progname.obj
 -+obj\pwrite.obj
 -+obj\realloca.obj 
 -+obj\recalloc.obj 

@@ -1533,6 +1533,7 @@ timesub(const time_t *timep, long offset, const struct state *sp, struct tm *tmp
 	return tmp;
 }
 
+#if 0
 char *
 ctime(const time_t *timep)
 {
@@ -1544,6 +1545,7 @@ ctime(const time_t *timep)
 */
 	return asctime(localtime(timep));
 }
+#endif
 
 char *
 ctime_r(const time_t *timep, char *buf)

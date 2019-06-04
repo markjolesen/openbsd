@@ -19,14 +19,17 @@ LIBBSD_OBJS=&
 	$(OBJ)\arc4rand.obj &
 	$(OBJ)\asprintf.obj &
 	$(OBJ)\bzero.obj &
+	$(OBJ)\entropy.obj &
 	$(OBJ)\freezero.obj &
-	$(OBJ)\ftrunc.obj
+	$(OBJ)\ftrunc.obj &
+	$(OBJ)\gmtime_r.obj &
 	$(OBJ)\htonl.obj &
 	$(OBJ)\htons.obj &
 	$(OBJ)\localtm.obj &
 	$(OBJ)\memalign.obj &
 	$(OBJ)\ntohs.obj &
 	$(OBJ)\pread.obj &
+	$(OBJ)\progname.obj &
 	$(OBJ)\pwrite.obj &
 	$(OBJ)\realloca.obj &
 	$(OBJ)\recalloc.obj &

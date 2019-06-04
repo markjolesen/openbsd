@@ -67,6 +67,7 @@
 
 /* TEMP: _mjo */
 int timingsafe_bcmp(const void* b1, const void *b2, size_t len);
+void freezero(void *ptr, size_t sz);
 
 int
 RSA_sign_ASN1_OCTET_STRING(int type, const unsigned char *m, unsigned int m_len,

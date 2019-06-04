@@ -166,7 +166,7 @@
 -+obj/dsa_sign.obj
 -+obj/dsameth.obj
 -+obj/dsa_lib.obj
--+obj/dsa_ameth.obj
+-+obj/dsaameth.obj
 -+obj/dsa_key.obj
 -+obj/dsa_depr.obj
 -+obj/dsa_err.obj

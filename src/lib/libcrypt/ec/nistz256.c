@@ -877,6 +877,8 @@ ecp_nistz256_points_mul(const EC_GROUP *group, EC_POINT *r,
 				p_str[i + 1] = (d >> 8) & 0xff;
 				p_str[i + 2] = (d >> 16) & 0xff;
 				p_str[i + 3] = (d >> 24) & 0xff;
+/* FIXME: _mjo */
+#if 0
 				if (BN_BYTES == 8) {
 					d >>= 32;
 					p_str[i + 4] = d & 0xff;
@@ -884,6 +886,7 @@ ecp_nistz256_points_mul(const EC_GROUP *group, EC_POINT *r,
 					p_str[i + 6] = (d >> 16) & 0xff;
 					p_str[i + 7] = (d >> 24) & 0xff;
 				}
+#endif
 			}
 
 			for (; i < 33; i++)
@@ -1183,7 +1186,7 @@ EC_GFp_nistz256_method(void)
 		.point_cmp = ec_GFp_simple_cmp,
 		.make_affine = ec_GFp_simple_make_affine,
 		.points_make_affine = ec_GFp_simple_points_make_affine,
-		/*.mul*/mul_generator_ct = ecp_nistz256_points_mul,
+		/*.mul =*/ ecp_nistz256_points_mul,
 		.precompute_mult = ecp_nistz256_mult_precompute,
 		.have_precompute_mult =
 		    ecp_nistz256_window_have_precompute_mult,

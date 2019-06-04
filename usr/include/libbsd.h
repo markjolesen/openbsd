@@ -37,6 +37,9 @@ char * strsep(char **stringp, const char *delim);
 int ftruncate(int fd, off_t len);
 ssize_t pread(int d, void *buf, size_t nbytes, off_t offset);
 ssize_t pwrite(int d, const void *buf, size_t nbytes, off_t offset);
+int getentropy(void *buf, size_t len);
+const char* getprogname();
+struct tm* gmtime_r(const time_t *clock, struct tm* result);
 
 uint32_t htonl(uint32_t x);
 uint16_t htons(uint16_t x);

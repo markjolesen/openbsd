@@ -71,6 +71,8 @@
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
+struct tm* gmtime_r(const time_t *clock, struct tm *result);
+
 /* Utility functions related to sending OCSP requests and extracting
  * relevant information from the response.
  */

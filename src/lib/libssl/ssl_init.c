@@ -37,6 +37,11 @@ OPENSSL_init_ssl_internal(void)
 int
 OPENSSL_init_ssl(uint64_t opts, const void *settings)
 {
+  static initialized= 0;
+
+  if (0 == initialized)
+  {
+  	initialized= 1;
 #if 0
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
@@ -52,6 +57,6 @@ OPENSSL_init_ssl(uint64_t opts, const void *settings)
 #endif
 
         OPENSSL_init_ssl_internal();
-
+  }
 	return 1;
 }

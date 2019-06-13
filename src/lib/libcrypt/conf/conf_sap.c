@@ -77,6 +77,7 @@
  */
 
 /* static pthread_once_t openssl_configured = PTHREAD_ONCE_INIT; */
+static int openssl_configured= 0;
 
 static const char *openssl_config_name;
 
@@ -109,6 +110,12 @@ OPENSSL_config_internal(void)
 int
 OpenSSL_config(const char *config_name)
 {
+
+  if (0 == openssl_configured)
+  {
+
+	openssl_configured= 1;
+
 	/* Don't override if NULL */
 	/*
 	 * Note - multiple threads calling this with *different* config names
@@ -127,7 +134,7 @@ OpenSSL_config(const char *config_name)
 */
 
 	OPENSSL_config_internal();
-
+  }
 	return 1;
 }
 
@@ -145,11 +152,15 @@ OPENSSL_no_config_internal(void)
 int
 OpenSSL_no_config(void)
 {
+  if (0 == openssl_configured)
+  {
+	openssl_configured= 1;
 /*
 	if (pthread_once(&openssl_configured, OPENSSL_no_config_internal) != 0)
 		return 0;
 */
 	OPENSSL_no_config_internal();
+  }
 	return 1;
 }
 

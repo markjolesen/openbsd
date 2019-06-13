@@ -741,9 +741,9 @@ LIB_OBJS=&
 	$(CMAC_OBJS) &
 	$(IDEA_OBJS)
 
-all : $(LIB)\openssl.lib .SYMBOLIC
+all : $(LIB)\crypt.lib .SYMBOLIC
 
-$(LIB)\openssl.lib : $(LIB_OBJS)
+$(LIB)\crypt.lib : $(LIB_OBJS)
 	wlib -n $^@ @owd32.lbc
 
 $(OBJ) :

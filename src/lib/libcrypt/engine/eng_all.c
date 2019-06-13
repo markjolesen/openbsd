@@ -79,10 +79,16 @@ ENGINE_load_builtin_engines_internal(void)
 void
 ENGINE_load_builtin_engines(void)
 {
+  static int initialized= 0;
+
+  if (0 == initialized)
+  {
+  	initialized= 1;
 	/* static pthread_once_t once = PTHREAD_ONCE_INIT; */
 
 	/* Prayer and clean living lets you ignore errors, OpenSSL style */
 	(void) OPENSSL_init_crypto(0, NULL);
 	/* (void) pthread_once(&once, ENGINE_load_builtin_engines_internal);*/
 	ENGINE_load_builtin_engines_internal();
+  }
 }

@@ -45,7 +45,12 @@ OPENSSL_init_crypto_internal(void)
 int
 OPENSSL_init_crypto(uint64_t opts, const void *settings)
 {
-#if 0 /* _mjo */
+  static int initialized= 0;
+
+  if (0 == initialized)
+  {
+	initialized= 1;
+#if 0 
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
 	if (pthread_equal(pthread_self(), crypto_init_thread))
@@ -55,7 +60,7 @@ OPENSSL_init_crypto(uint64_t opts, const void *settings)
 		return 0;
 #endif
 
-        OPENSSL_init_crypto_internal(); /* _mjo */
+        OPENSSL_init_crypto_internal();
 
 	if ((opts & OPENSSL_INIT_NO_LOAD_CONFIG) &&
 	    (OpenSSL_no_config() == 0))
@@ -64,6 +69,6 @@ OPENSSL_init_crypto(uint64_t opts, const void *settings)
 	if ((opts & OPENSSL_INIT_LOAD_CONFIG) &&
 	    (OpenSSL_config(NULL) == 0))
 		return 0;
-
+  }
 	return 1;
 }

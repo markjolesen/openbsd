@@ -13,7 +13,7 @@ DEFINES=
 INCLUDES=
 
 CC=wcc386
-CFLAGS=-3r -mf -bt=DOS $(DEFINES) $(INCLUDES)
+CFLAGS=-3r -mf -bt=DOS -d3 $(DEFINES) $(INCLUDES)
 
 LIBBSD_OBJS=&
 	$(OBJ)\arc4rand.obj &

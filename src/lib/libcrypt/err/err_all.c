@@ -160,9 +160,15 @@ ERR_load_crypto_strings_internal(void)
 void
 ERR_load_crypto_strings(void)
 {
+  static int initialized= 0;
+
+  if (0 == initialized)
+  {
+	initialized= 1;
 /*
 	static pthread_once_t loaded = PTHREAD_ONCE_INIT;
 	(void) pthread_once(&loaded, ERR_load_crypto_strings_internal);
 */
 	ERR_load_crypto_strings_internal();
+  }
 }

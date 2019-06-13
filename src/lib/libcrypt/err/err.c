@@ -673,6 +673,12 @@ ERR_load_ERR_strings_internal(void)
 void
 ERR_load_ERR_strings(void)
 {
+  static initialized= 0;
+
+  if (0 == initialized)
+  {
+
+	initialized= 1;
 #if 0
 	static pthread_once_t once = PTHREAD_ONCE_INIT;
 
@@ -686,6 +692,8 @@ ERR_load_ERR_strings(void)
 #endif
 
 	ERR_load_ERR_strings_internal();
+
+  }
 }
 
 static void

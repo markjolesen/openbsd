@@ -14,7 +14,7 @@ INCLUDES= -i..\..\..\usr\include
 INCLUDES+= -i\source\wattcp32\inc
 
 CC=wcc386
-CFLAGS=-3r -mf -bt=DOS $(DEFINES) $(INCLUDES)
+CFLAGS=-3r -mf -bt=DOS -d3 $(DEFINES) $(INCLUDES)
 
 LIBTLS_OBJS=&
 	$(OBJ)\bio_cb.obj &

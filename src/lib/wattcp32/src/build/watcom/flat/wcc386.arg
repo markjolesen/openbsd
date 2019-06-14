@@ -1,0 +1,1 @@
+-mf -3r -bt=dos -DWATT32_BUILD -I. -I..\inc

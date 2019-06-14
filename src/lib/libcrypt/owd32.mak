@@ -6,15 +6,16 @@
 # from: United States.
 #
 
+ROOT=..\..\..\
+
 OBJ=obj
-LIB=lib
+LIB=$(ROOT)\usr\lib
 
 DEFINES= -DLIBRESSL_INTERNAL -DOPENSSL_NO_ASM -DNO_SYSLOG -DOPENSSL_NO_DGRAM
 DEFINES+= -DOPENSSL_NO_DEPRECATED
 
-INCLUDES= -i..\..\..\usr\include 
+INCLUDES= -i$(ROOT)\usr\include 
 INCLUDES+= -i. -i.\bn -i.\asn1 -i.\ec -i.\ecdsa -i.\evp -i.\modes
-INCLUDES+= -i\source\wattcp32\inc
 
 CC=wcc386
 CFLAGS=-3r -mf -bt=DOS $(DEFINES) $(INCLUDES)

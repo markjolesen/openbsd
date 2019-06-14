@@ -6,15 +6,16 @@
 # from: United States.
 #
 
+ROOT=..\..\..\
+
 OBJ=obj
-LIB=lib
+LIB=$(ROOT)\usr\lib
 
 DEFINES= -DLIBRESSL_INTERNAL -DOPENSSL_NO_DEPRECATED
-INCLUDES= -i..\..\..\usr\include 
-INCLUDES+= -i\source\wattcp32\inc
+INCLUDES= -i$(ROOT)\usr\include 
 
 CC=wcc386
-CFLAGS=-3r -mf -bt=DOS -d3 $(DEFINES) $(INCLUDES)
+CFLAGS=-3r -mf -bt=DOS $(DEFINES) $(INCLUDES)
 
 LIBSSL_OBJS=&
 	$(OBJ)\bio_ssl.obj &

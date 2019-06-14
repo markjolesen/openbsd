@@ -6,14 +6,16 @@
 # from: United States.
 #
 
+ROOT=..\..\..\
+
 OBJ=obj
-LIB=lib
+LIB=$(ROOT)\usr\lib
 
 DEFINES=
 INCLUDES=
 
 CC=wcc386
-CFLAGS=-3r -mf -bt=DOS -d3 $(DEFINES) $(INCLUDES)
+CFLAGS=-3r -mf -bt=DOS $(DEFINES) $(INCLUDES)
 
 LIBBSD_OBJS=&
 	$(OBJ)\arc4rand.obj &

@@ -123,7 +123,7 @@ PKT_STUB = pkt_stub.h
 CC      = wcc386
 CFLAGS  = -mf -3r -bt=dos
 AFLAGS  = -bt=dos -3r -dDOSX -dDOS4GW
-TARGET  = ..\lib\wattcpwf.lib
+TARGET  = ..\..\..\..\usr\lib\wattcpwf.lib
 OBJDIR  = build\watcom\flat
 MAKEFIL = owd32.mak
 
@@ -170,7 +170,8 @@ AR = wlib -q -b -c
 
 all: $(PKT_STUB) $(C_ARGS) $(OBJDIR)\cflags.h $(OBJDIR)\cflagsb.h $(TARGET)
 
-..\lib\wattcpwf.lib: $(OBJS) $(LIBARG)
+#..\lib\wattcpwf.lib: $(OBJS) $(LIBARG)
+$(TARGET) : $(OBJS) $(LIBARG)
 	$(AR) $^@ @$(LIBARG)
 
 -!include "build\watcom\watt32.dep"

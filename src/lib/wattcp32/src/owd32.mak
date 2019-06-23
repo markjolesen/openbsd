@@ -133,7 +133,7 @@ LINKARG = $(OBJDIR)\wlink.arg
 C_ARGS  = $(OBJDIR)\$(CC).arg
 
 # AFLAGS += -zq -fr=nul -w3 -d1
-CFLAGS += -DWATT32_BUILD -I. -I..\inc
+CFLAGSX = -DWATT32_NO_NAMESPACE -DWATT32_BUILD -I. -I..\inc
 
 #
 # WCC386-flags used:
@@ -170,7 +170,7 @@ AR = wlib -q -b -c
 
 all: $(PKT_STUB) $(C_ARGS) $(OBJDIR)\cflags.h $(OBJDIR)\cflagsb.h $(TARGET)
 
-#..\lib\wattcpwf.lib: $(OBJS) $(LIBARG)
+# ..\lib\wattcpwf.lib: $(OBJS) $(LIBARG)
 $(TARGET) : $(OBJS) $(LIBARG)
 	$(AR) $^@ @$(LIBARG)
 
@@ -190,7 +190,7 @@ $(OBJDIR)\cpumodel.obj: cpumodel.asm
 
 $(C_ARGS): $(MAKEFIL)
 	%create $^@
-	%append $^@ $(CFLAGS)
+	%append $^@ $(CFLAGS) $(CFLAGSX)
 
 clean: .SYMBOLIC
 	- @del $(OBJDIR)\*.obj

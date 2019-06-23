@@ -110,6 +110,14 @@ extern CONST char  DATA_DECL x86_vendor_id[13];
 
   extern BOOL  SYSCALL cdecl SelWriteable (WORD sel);
   extern BOOL  SYSCALL cdecl SelReadable (WORD sel);
+
+  extern void  SYSCALL cdecl get_cpuid(DWORD val, DWORD *_eax,
+    DWORD *_ebx, DWORD *_ecx, DWORD *_edx);
+
+  extern uint64 SYSCALL cdecl get_rdtsc(void);
+
+  extern void   SYSCALL cdecl get_rdtsc2(struct ulong_long *tsc);
+
 #endif
 
 #if defined(__WATCOMC__) && 0 /* no more need for this */

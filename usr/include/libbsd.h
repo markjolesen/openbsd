@@ -8,9 +8,11 @@
 */
 #if !defined(__libbsd_h__)
 
+#include <sys/types.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
+#include <time.h>
 
 #ifdef __cplusplus
 extern "C" {

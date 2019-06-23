@@ -44,18 +44,18 @@ PUBLIC x86_have_cpuid,    _x86_have_cpuid
 PUBLIC x86_hard_math,     _x86_hard_math
 PUBLIC x86_vendor_id,     _x86_vendor_id
 
-PUBLIC _w32_CheckCpuType, __w32_CheckCpuType, CheckCpuType
-PUBLIC _w32_get_cpuid,    __w32_get_cpuid,    get_cpuid
-PUBLIC _w32_asm_ffs,      __w32_asm_ffs,      asm_ffs
-PUBLIC _w32_get_rdtsc,    __w32_get_rdtsc,    get_rdtsc
-PUBLIC _w32_get_rdtsc2,   __w32_get_rdtsc2,   get_rdtsc2
+PUBLIC _w32_CheckCpuType, __w32_CheckCpuType, _CheckCpuType, CheckCpuType
+PUBLIC _w32_get_cpuid,    __w32_get_cpuid,    _get_cpuid, get_cpuid
+PUBLIC _w32_asm_ffs,      __w32_asm_ffs,      _asm_ffs, asm_ffs
+PUBLIC _w32_get_rdtsc,    __w32_get_rdtsc,    _get_rdtsc, get_rdtsc
+PUBLIC _w32_get_rdtsc2,   __w32_get_rdtsc2,   _get_rdtsc2, get_rdtsc2
 
-PUBLIC _w32_MY_CS,        __w32_MY_CS
+PUBLIC _w32_MY_CS,        __w32_MY_CS, _MY_CS
 PUBLIC _w32_MY_DS,        __w32_MY_DS
 PUBLIC _w32_MY_ES,        __w32_MY_ES
 PUBLIC _w32_MY_SS,        __w32_MY_SS
-PUBLIC _w32_Get_CR4,      __w32_Get_CR4
-PUBLIC _w32_SelReadable , __w32_SelReadable
+PUBLIC _w32_Get_CR4,      __w32_Get_CR4, _Get_CR4
+PUBLIC _w32_SelReadable , __w32_SelReadable, _SelReadable 
 PUBLIC _w32_SelWriteable, __w32_SelWriteable
 
 ifndef WIN64
@@ -176,6 +176,7 @@ else  ; 32-bit
 ; Check Processor type: 386, 486, 6x86(L) or CPUID capable processor
 ;
       CheckCpuType:
+     _CheckCpuType:
  _w32_CheckCpuType:
 __w32_CheckCpuType:
     push ebp
@@ -403,6 +404,7 @@ else
 
   ALIGN 4
       get_cpuid:
+     _get_cpuid:
  _w32_get_cpuid:
 __w32_get_cpuid:
     enter 0, 0
@@ -429,6 +431,7 @@ endif  ; WIN64
 ; uint64 cdecl _w32_get_rdtsc (void);
 ;
       get_rdtsc:
+     _get_rdtsc:
  _w32_get_rdtsc:
 __w32_get_rdtsc:
 ifdef WIN64
@@ -442,6 +445,7 @@ endif
 ; void cdecl _w32_get_rdtsc2 (struct ulong_long *tsc);
 ;
       get_rdtsc2:
+     _get_rdtsc2:
  _w32_get_rdtsc2:
 __w32_get_rdtsc2:
 ifdef WIN64
@@ -469,6 +473,7 @@ endif   ; WIN64
 ; int cdecl _w32_asm_ffs (int val)
 ;
       asm_ffs:
+     _asm_ffs:
  _w32_asm_ffs:
 __w32_asm_ffs:
 ifdef WIN64
@@ -569,6 +574,7 @@ endif
 ;
 ; BOOL _w32_SelReadable (WORD sel)
 ;
+     _SelReadable:
  _w32_SelReadable:
 __w32_SelReadable:
 ifdef WIN64

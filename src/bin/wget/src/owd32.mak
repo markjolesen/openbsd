@@ -1,7 +1,10 @@
+ROOT=..\..\..\..
+
+WGET_BIN=$(ROOT)\usr\bin\wget.exe
 
 VERSION = 1.20.3 (Watcom/DOS)
 
-INCLUDES= -I. -I..\lib -I..\..\..\..\usr\include
+INCLUDES= -I. -I..\lib -I$(ROOT)\usr\include
 
 CFLAGS= -mf -3r -bt=DOS  
 
@@ -10,7 +13,7 @@ DEFINES+= -DWATT32_NO_NAMESPACE -DHAVE_SSL -DENABLE_DEBUG
 
 COMPILE = *wcc386 $(CFLAGS) $(INCLUDES) $(DEFINES)
 
-LINK = *wlink option quiet, map, verbose, eliminate, caseexact, stack=100k debug all system dos4g
+LINK = *wlink option quiet, map, verbose, eliminate, caseexact, stack=100k system causeway
 
 .c : ..\lib
 
@@ -86,7 +89,7 @@ WGET_OBJS = &
 
 OBJECTS = $(LIB_OBJS) $(WGET_OBJS)
 
-all : $(OBJ) wget.exe .SYMBOLIC
+all : $(OBJ) $(WGET_BIN) .SYMBOLIC
 	@echo 'Welcome to Wget / Watcom'
 
 $(OBJ) :
@@ -99,9 +102,8 @@ $(OBJ) :
 css.c : css.l
 	flex -8 -o$@ $[@
 
-wget.exe : $(OBJECTS)
+$(WGET_BIN) : $(OBJECTS)
 	$(LINK) name $@ file { $(OBJECTS) } library ..\..\..\..\usr\lib\wattcpwf.lib, ..\..\..\..\usr\lib\bsd.lib, ..\..\..\..\usr\lib\tls.lib, ..\..\..\..\usr\lib\ssl.lib, ..\..\..\..\usr\lib\crypt.lib
-
 
 version.c : owd32.mak
 	@echo char *version_string = "$(VERSION)"; > $@
@@ -110,6 +112,6 @@ version.c : owd32.mak
 	@echo char *link_string = "name wget.exe"; >> $@
 
 clean : .SYMBOLIC
-	- rm $(OBJ)\*.obj wget.exe wget.map version.c css.c
+	- rm $(OBJ)\*.obj $(WGET_BIN) wget.map version.c css.c
 	- rmdir $(OBJ)
 

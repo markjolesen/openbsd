@@ -121,7 +121,7 @@ PKT_STUB = pkt_stub.h
 .EXTENSIONS: .l
 
 CC      = wcc386
-CFLAGS  = -mf -3r -bt=dos
+CFLAGS  = -mf -3r -bt=dos -dDOSX -dDOS4GW
 AFLAGS  = -bt=dos -3r -dDOSX -dDOS4GW
 TARGET  = ..\..\..\..\usr\lib\wattcpwf.lib
 OBJDIR  = build\watcom\flat

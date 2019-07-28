@@ -9,11 +9,11 @@ INCLUDES= -I. -I..\lib -I$(ROOT)\usr\include
 CFLAGS= -mf -3r -bt=DOS  
 
 DEFINES= -DHAVE_CONFIG_H -DSIZEOF_INT=4 -DUSE_WATT32 -DMSDOS
-DEFINES+= -DWATT32_NO_NAMESPACE -DHAVE_SSL -DENABLE_DEBUG
+DEFINES+= -DWATT32_NO_NAMESPACE -DHAVE_SSL
 
 COMPILE = *wcc386 $(CFLAGS) $(INCLUDES) $(DEFINES)
 
-LINK = *wlink option quiet, map, verbose, eliminate, caseexact, stack=100k system causeway
+LINK = *wlink option quiet, map, verbose, eliminate, caseexact, stack=100k system dos4g
 
 .c : ..\lib
 
